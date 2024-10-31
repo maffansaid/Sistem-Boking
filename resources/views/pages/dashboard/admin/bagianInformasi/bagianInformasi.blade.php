@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bagian Informasi Admin</title>
-    <link rel="icon" type="image/x-icon" href="/assets/">
+    <link rel="icon" type="image/x-icon" href="/assets/logo_polres.png">
     {{-- Awal Tailwind --}}
+    {{-- <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script> --}}
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
     {{-- Akhir Tailwind --}}
     {{-- Awal Flowbite --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css" rel="stylesheet" />
@@ -24,11 +24,11 @@
     <x-sideBarAdmin />
     <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
         <div class="m-5 lg:m-20">
-            <div class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-10">
+            <div class="flex m-auto text-center justify-center items-center text-[30px] text-white mb-10">
                 Daftar
                 Informasi</div>
             <div class="relative overflow-x-auto">
-                <table class="w-full text-sm text-center rtl:text-right text-black font-bold">
+                <table class="w-full text-sm text-center rtl:text-right text-black">
                     <thead class="text-xs text-black uppercase bg-[#FBB603] font-bold">
                         <tr>
                             <th scope="col" class="px-2 py-1 rounded-tl-lg">
@@ -41,140 +41,125 @@
                                 Poster
                             </th>
                             <th scope="col" class="px-6 py-3 rounded-tr-lg">
-                                Keterangan
+                                Aksi
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b border-[#FBB603]">
-                            <th scope="row" class="px-2 py-1 font-medium text-black whitespace-nowrap">
-                                1
-                            </th>
-                            <td class="px-6 py-4">
-                                Fulan
-                            </td>
-                            <td class="px-6 py-4">
-                                Tangkas
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex justify-items-center m-auto text-center justify-center gap-2">
-                                    <a href="" title="lihat">
-                                        <div
-                                            class="bg-[#FA8F21] dark:bg-[#FA8F21] hover:bg-[#D87815] dark:hover:bg-[#D87815] p-1 rounded-md">
+                        <?php
+                        $dummyData = [
+                            [
+                                'id' => 1,
+                                'judul' => 'Ahmad',
+                                'poster' => '/assets/logo_polres.png',
+                            ],
+                            [
+                                'id' => 2,
+                                'judul' => 'Apan',
+                                'poster' => '/assets/boking1.png',
+                            ],
+                        ];
+                        ?>
+                        @foreach ($dummyData as $data)
+                            <tr class="bg-white border-b border-[#FBB603]">
+                                <th scope="row" class="px-2 py-1 font-medium text-black whitespace-nowrap">
+                                    {{ $data['id'] }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $data['judul'] }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <img src="{{ $data['poster'] }}" alt=""
+                                        class="w-10 h-10 md:w-32 md:h-20 flex m-auto">
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="flex justify-items-center m-auto text-center justify-center gap-2">
+                                        <button onclick="showImage('{{ $data['poster'] }}')" title="lihat"
+                                            class="bg-[#FA8F21] hover:bg-[#D87815] p-1 rounded-md">
                                             <x-svg-lihat />
-                                        </div>
-                                    </a>
-                                    <div class="div">
-                                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
+                                        </button>
+                                        <button onclick="showDeleteModal({{ $data['id'] }})" title="Delete"
                                             class="bg-[#FF0000] hover:bg-[#D51717] p-1 rounded-md cursor-pointer delete-button"
-                                            title="Delete" type="button" data-index="">
+                                            type="button">
                                             <x-svg-delete />
                                         </button>
-                                        <div id="popup-modal" tabindex="-1"
-                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                            <div class="relative p-4 w-full max-w-md max-h-full">
-                                                <div class="relative bg-white rounded-lg shadow">
-                                                    <button type="button"
-                                                        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                                        data-modal-hide="popup-modal">
-                                                        <svg class="w-3 h-3" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 14 14">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"
-                                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                        </svg>
-                                                        <span class="sr-only">Close modal</span>
-                                                    </button>
-                                                    <div class="p-4 md:p-5 text-center">
-                                                        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12"
-                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 20 20">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"
-                                                                d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                        </svg>
-                                                        <h3 class="mb-5 text-lg font-normal text-gray-500">
-                                                            Yakin ingin hapus data ?</h3>
-                                                        <button data-modal-hide="popup-modal" type="button"
-                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                                            Ya
-                                                        </button>
-                                                        <button data-modal-hide="popup-modal" type="button"
-                                                            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Tidak</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
-                                </div>
-                            </td>
-                        </tr>
-                        <tr class="bg-white border-b border-[#FBB603]">
-                            <th scope="row" class="px-2 py-1 font-medium text-black whitespace-nowrap">
-                                2
-                            </th>
-                            <td class="px-6 py-4">
-                                Fulan2
-                            </td>
-                            <td class="px-6 py-4">
-                                Tangkas2
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex justify-items-center m-auto text-center justify-center gap-2">
-                                    <a href="" title="lihat">
-                                        <div
-                                            class="bg-[#FA8F21] dark:bg-[#FA8F21] hover:bg-[#D87815] dark:hover:bg-[#D87815] p-1 rounded-md">
-                                            <x-svg-lihat />
-                                        </div>
-                                    </a>
-                                    <div class="div">
-                                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal"
-                                            class="bg-[#FF0000] hover:bg-[#D51717] p-1 rounded-md cursor-pointer delete-button"
-                                            title="Delete" type="button" data-index="">
-                                            <x-svg-delete />
-                                        </button>
-                                        <div id="popup-modal" tabindex="-1"
-                                            class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
-                                            <div class="relative p-4 w-full max-w-md max-h-full">
-                                                <div class="relative bg-white rounded-lg shadow">
-                                                    <button type="button"
-                                                        class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                                                        data-modal-hide="popup-modal">
-                                                        <svg class="w-3 h-3" aria-hidden="true"
-                                                            xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                            viewBox="0 0 14 14">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"
-                                                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
-                                                        </svg>
-                                                        <span class="sr-only">Close modal</span>
-                                                    </button>
-                                                    <div class="p-4 md:p-5 text-center">
-                                                        <svg class="mx-auto mb-4 text-gray-400 w-12 h-12"
-                                                            aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                                            fill="none" viewBox="0 0 20 20">
-                                                            <path stroke="currentColor" stroke-linecap="round"
-                                                                stroke-linejoin="round" stroke-width="2"
-                                                                d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
-                                                        </svg>
-                                                        <h3 class="mb-5 text-lg font-normal text-gray-500">
-                                                            Yakin ingin hapus data ?</h3>
-                                                        <button data-modal-hide="popup-modal" type="button"
-                                                            class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center">
-                                                            Ya
-                                                        </button>
-                                                        <button data-modal-hide="popup-modal" type="button"
-                                                            class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100">Tidak</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
+
+                    <!-- Image Modal -->
+                    <div id="imageModal"
+                        class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+                        <div class="relative">
+                            <img id="fullImage" src="" alt="Poster" class="max-w-full max-h-screen">
+                            <button onclick="closeImage()" class="absolute top-2 right-2 bg-white rounded-full p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                    stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Popup Modal (Ditempatkan di luar foreach loop) -->
+                    <div id="popup-modal" tabindex="-1"
+                        class="hidden fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-50">
+                        <div class="relative bg-white rounded-lg shadow w-[90%] md:w-[30%] p-4">
+                            <button type="button" onclick="closeDeleteModal()"
+                                class="absolute top-3 right-3 text-gray-400 bg-transparent hover:bg-gray-200 rounded-lg p-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12" />
+                                </svg>
+                            </button>
+                            <div class="text-center">
+                                <svg class="mx-auto mb-4 text-gray-400 w-12 h-12" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                                </svg>
+                                <p class="text-lg text-gray-500 mb-5">Yakin ingin hapus data?</p>
+                                <button onclick="confirmDelete()"
+                                    class="bg-red-600 hover:bg-red-800 text-white py-2 px-5 rounded-md">Ya</button>
+                                <button onclick="closeDeleteModal()"
+                                    class="bg-gray-200 text-gray-700 py-2 px-5 rounded-md ms-3">Tidak</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        let selectedId = null;
+
+                        function showImage(src) {
+                            document.getElementById('fullImage').src = src;
+                            document.getElementById('imageModal').classList.remove('hidden');
+                        }
+
+                        function closeImage() {
+                            document.getElementById('imageModal').classList.add('hidden');
+                        }
+
+                        function showDeleteModal(id) {
+                            selectedId = id;
+                            document.getElementById('popup-modal').classList.remove('hidden');
+                        }
+
+                        function closeDeleteModal() {
+                            document.getElementById('popup-modal').classList.add('hidden');
+                        }
+
+                        function confirmDelete() {
+                            if (selectedId !== null) {
+                                console.log('ID ' + selectedId + ' berhasil dihapus.');
+                                closeDeleteModal();
+                                selectedId = null;
+                            }
+                        }
+                    </script>
+
                 </table>
             </div>
             <!-- Modal toggle -->

@@ -38,9 +38,6 @@ class Landing extends Controller
     function bagianWaktu () {
         return view('pages/dashboard/admin/bagianWaktu/bagianWaktu');
     }
-    function bagianWaktu2 () {
-        return view('pages/dashboard/admin/bagianWaktu/bagianWaktu2');
-    }
 
     function bagianPermintaan () {
         return view('pages/dashboard/admin/bagianPermintaan/bagianPermintaan');

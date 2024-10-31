@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Pemesanan</title>
-    <link rel="icon" type="image/x-icon" href="/assets/">
+    <link rel="icon" type="image/x-icon" href="/assets/logo_polres.png">
     {{-- Awal Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -29,27 +29,27 @@
             <div class="w-full">
                 <div class="mb-2 lg:mb-3 mt-2">
                     <label for="name" class="block mb-2 text-[12px] font-medium text-white">Nama </label>
-                    <input type="text" name="" id="judul"
+                    <input type="text" name="" id="nama"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama" required="">
+                        placeholder="Nama" required>
                 </div>
                 <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="name" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
-                    <input type="number" name="" id="judul"
+                    <label for="no_telpon" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
+                    <input type="number" name="" id="no_telpon"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="No Telpon" required="">
+                        placeholder="No Telpon" required>
                 </div>
                 <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="name" class="block mb-2 text-[12px] font-medium text-white">Email</label>
-                    <input type="email" name="" id="judul"
+                    <label for="email" class="block mb-2 text-[12px] font-medium text-white">Email</label>
+                    <input type="email" name="" id="email"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Asal" required="">
+                        placeholder="Email" required>
                 </div>
                 <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="name" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
-                    <input type="name" name="" id="judul"
+                    <label for="nama_pb" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
+                    <input type="text" name="" id="nama_pb"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama PB" required="">
+                        placeholder="Nama PB" required>
                 </div>
             </div>
             <div class="flex justify-end">

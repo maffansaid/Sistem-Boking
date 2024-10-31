@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lihat Riwayat</title>
-    <link rel="icon" type="image/x-icon" href="/assets/">
+    <link rel="icon" type="image/x-icon" href="/assets/logo_polres.png">
     {{-- Awal Tailwind --}}
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
@@ -47,40 +47,47 @@
             <div class="lg:flex justify-between lg:gap-10">
                 <div class="w-full lg:w-1/2">
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Nama </label>
-                        <input type="text" name="" id="judul"
+                        <label for="nama" class="block mb-2 text-[12px] font-medium text-white">Nama </label>
+                        <input type="text" name="" id="nama"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Nama" required="">
                     </div>
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
-                        <input type="number" name="" id="judul"
+                        <label for="no_telpon" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
+                        <input type="number" name="" id="no_telpon"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="No Telpon" required="">
                     </div>
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Email</label>
-                        <input type="email" name="" id="judul"
+                        <label for="email" class="block mb-2 text-[12px] font-medium text-white">Email</label>
+                        <input type="email" name="" id="email"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Asal" required="">
                     </div>
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
-                        <input type="name" name="" id="judul"
+                        <label for="nama_pb" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
+                        <input type="name" name="" id="nama_pb"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
                             placeholder="Nama PB" required="">
                     </div>
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Tanggal</label>
+                        <label for="tanggal" class="block mb-2 text-[12px] font-medium text-white">Tanggal</label>
                         <input name="" type="datetime-local" id="DateTime"
                             class="border border-[#297785] text-gray-900 text-sm rounded-md focus:ring-[#297785] focus:border-[#297785] h-9 px-2 w-[50%]"
                             placeholder="Masukkan Tanggal dan Waktu" required />
                     </div>
                     <div class="mb-2 lg:mb-3 mt-2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Jam</label>
+                        <label for="jam" class="block mb-2 text-[12px] font-medium text-white">Jam</label>
                         <input name="" type="datetime" id="DateTime"
                             class="border border-[#297785] text-gray-900 text-sm rounded-md focus:ring-[#297785] focus:border-[#297785] h-9 px-2 w-[50%]"
                             placeholder="08:00,09:00,10:00 Wib" required />
+                    </div>
+                    <div class="mb-2 lg:mb-3 mt-2">
+                        <label for="total_pembayaran" class="block mb-2 text-[12px] font-medium text-white">Total
+                            Pembayaran</label>
+                        <input name="" type="text"
+                            class="border border-[#297785] text-gray-900 text-sm rounded-md focus:ring-[#297785] focus:border-[#297785] h-9 px-2 w-[50%]"
+                            placeholder="Rp. 10.000" required />
                     </div>
                 </div>
                 <div class="w-full lg:mt-0 mt-5 lg:w-1/2">

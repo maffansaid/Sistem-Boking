@@ -13,38 +13,19 @@
     class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-[#D9D9D9]">
+
         <ul class="space-y-2 font-medium">
-            <li>
-                <a href="#" class="items-center p-2 text-gray-900 rounded-lg group">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                        class="w-20 h-20 flex justify-center m-auto">
-                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
-                        <g id="SVGRepo_iconCarrier">
-                            <path
-                                d="M12.12 12.78C12.05 12.77 11.96 12.77 11.88 12.78C10.12 12.72 8.71997 11.28 8.71997 9.50998C8.71997 7.69998 10.18 6.22998 12 6.22998C13.81 6.22998 15.28 7.69998 15.28 9.50998C15.27 11.28 13.88 12.72 12.12 12.78Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            </path>
-                            <path
-                                d="M18.74 19.3801C16.96 21.0101 14.6 22.0001 12 22.0001C9.40001 22.0001 7.04001 21.0101 5.26001 19.3801C5.36001 18.4401 5.96001 17.5201 7.03001 16.8001C9.77001 14.9801 14.25 14.9801 16.97 16.8001C18.04 17.5201 18.64 18.4401 18.74 19.3801Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            </path>
-                            <path
-                                d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
-                                stroke="#292D32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                            </path>
-                        </g>
-                    </svg>
-                    <span class="ms-3 flex justify-center text-sm">muhammadaffansaid@gmail.com</span>
+            <li class="pb-2">
+                <a href="mailto:gorbulutangkislamsel@gmail.com" class="items-center text-gray-900 rounded-lg group ">
+                    <img src="/assets/logo_polres.png" alt=""
+                        class="w-[80px] h-[60px] md:w-[140px] md:h-[100px] m-auto justify-center items-center flex">
+                    <span class="ms-3 flex justify-center text-sm">Polres Lampung-Selatan</span>
                 </a>
             </li>
+
             <li>
                 @php
-                    // path halaman aktif
-                    $activePagePath1 = ['UserPemesanan']; // path halaman aktif
-                    // if (isset($id)) {
-                    //     array_push($activePagePath1, 'loginAdmin/edit/' . $id);
-                    // }
+                    $activePagePath1 = ['UserPemesanan'];
                 @endphp
                 <a href="/UserPemesanan"
                     class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath1)) text-white rounded-lg bg-[#99FF33]
@@ -58,6 +39,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Bagian Biodata</span>
                 </a>
             </li>
+
             <li>
                 <div class="div">
                     <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
@@ -71,13 +53,10 @@
                     </svg>
                 </div>
             </li>
+
             <li>
                 @php
-                    // path halaman aktif
-                    $activePagePath2 = ['UserWaktu']; // path halaman aktif
-                    // if (isset($id)) {
-                    //     array_push($activePagePath1, 'loginAdmin/edit/' . $id);
-                    // }
+                    $activePagePath2 = ['UserWaktu'];
                 @endphp
                 <a href="/UserWaktu"
                     class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath2)) text-white rounded-lg bg-[#99FF33]
@@ -96,6 +75,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Bagian Waktu</span>
                 </a>
             </li>
+
             <li>
                 <div class="div">
                     <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
@@ -109,13 +89,10 @@
                     </svg>
                 </div>
             </li>
+
             <li>
                 @php
-                    // path halaman aktif
-                    $activePagePath3 = ['UserPembayaran']; // path halaman aktif
-                    // if (isset($id)) {
-                    //     array_push($activePagePath1, 'loginAdmin/edit/' . $id);
-                    // }
+                    $activePagePath3 = ['UserPembayaran'];
                 @endphp
                 <a href="/UserPembayaran"
                     class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath3)) text-white rounded-lg bg-[#99FF33]
@@ -183,6 +160,7 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Bagian Pembayaran</span>
                 </a>
             </li>
+
             <li>
                 <div class="div">
                     <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
@@ -196,13 +174,10 @@
                     </svg>
                 </div>
             </li>
+
             <li>
                 @php
-                    // path halaman aktif
-                    $activePagePath4 = ['UserSelesai']; // path halaman aktif
-                    // if (isset($id)) {
-                    //     array_push($activePagePath1, 'loginAdmin/edit/' . $id);
-                    // }
+                    $activePagePath4 = ['UserSelesai'];
                 @endphp
                 <a href="/UserSelesai"
                     class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath4)) text-white rounded-lg bg-[#99FF33]
@@ -217,7 +192,8 @@
                             <title>finish_line [#103]</title>
                             <desc>Created with Sketch.</desc>
                             <defs> </defs>
-                            <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor" fill-rule="evenodd">
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="currentColor"
+                                fill-rule="evenodd">
                                 <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -7759.000000)"
                                     fill="currentColor">
                                     <g id="icons" transform="translate(56.000000, 160.000000)">
@@ -232,20 +208,24 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Selesai</span>
                 </a>
             </li>
+
         </ul>
-        <ul class="pt-4 mt-4 space-y-2 font-medium border-t border-gray-200 dark:border-gray-700">
+
+        <ul class="pt-4 mt-4 space-y-2 font-medium border-t-2 border-gray-200 dark:border-gray-700">
             <li>
-                <a href="/Home"
-                    class="flex items-center p-2 text-white bg-[#A40000] hover:text-white rounded-lg hover:bg-[#A40000] group">
-                    <svg class="flex-shrink-0 w-5 h-5 transition duration-75" aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M5 5V.13a2.96 2.96 0 0 0-1.293.749L.879 3.707A2.96 2.96 0 0 0 .13 5H5Z" />
-                        <path
-                            d="M6.737 11.061a2.961 2.961 0 0 1 .81-1.515l6.117-6.116A4.839 4.839 0 0 1 16 2.141V2a1.97 1.97 0 0 0-1.933-2H7v5a2 2 0 0 1-2 2H0v11a1.969 1.969 0 0 0 1.933 2h12.134A1.97 1.97 0 0 0 16 18v-3.093l-1.546 1.546c-.413.413-.94.695-1.513.81l-3.4.679a2.947 2.947 0 0 1-1.85-.227 2.96 2.96 0 0 1-1.635-3.257l.681-3.397Z" />
-                        <path
-                            d="M8.961 16a.93.93 0 0 0 .189-.019l3.4-.679a.961.961 0 0 0 .49-.263l6.118-6.117a2.884 2.884 0 0 0-4.079-4.078l-6.117 6.117a.96.96 0 0 0-.263.491l-.679 3.4A.961.961 0 0 0 8.961 16Zm7.477-9.8a.958.958 0 0 1 .68-.281.961.961 0 0 1 .682 1.644l-.315.315-1.36-1.36.313-.318Zm-5.911 5.911 4.236-4.236 1.359 1.359-4.236 4.237-1.7.339.341-1.699Z" />
+                <a href="/"
+                    class="flex items-center p-2 bg-[#FBB603] rounded-lg hover:bg-[#99FF33] group w-fit m-auto text-black hover:text-white">
+                    <svg class="flex-shrink-0 w-5 h-5 transition duration-75" fill="currentColor"
+                        viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M222.927 580.115l301.354 328.512c24.354 28.708 20.825 71.724-7.883 96.078s-71.724 20.825-96.078-7.883L19.576 559.963a67.846 67.846 0 01-13.784-20.022 68.03 68.03 0 01-5.977-29.488l.001-.063a68.343 68.343 0 017.265-29.134 68.28 68.28 0 011.384-2.6 67.59 67.59 0 0110.102-13.687L429.966 21.113c25.592-27.611 68.721-29.247 96.331-3.656s29.247 68.721 3.656 96.331L224.088 443.784h730.46c37.647 0 68.166 30.519 68.166 68.166s-30.519 68.166-68.166 68.166H222.927z">
+                            </path>
+                        </g>
                     </svg>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Logout</span>
+                    <span class="flex-1 ms-3 ">Home</span>
                 </a>
             </li>
         </ul>

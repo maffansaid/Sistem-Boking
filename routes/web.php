@@ -30,7 +30,6 @@ Route::controller(Landing::class) -> group(function () {
     Route::get('/BagianInformasi', 'bagianInformasi');
 
     Route::get('/BagianWaktu', 'bagianWaktu');
-    Route::get('/BagianWaktu2', 'bagianWaktu2');
 
     Route::get('/BagianPermintaan', 'bagianPermintaan');
     Route::get('/BagianPermintaan2', 'bagianPermintaan2');
