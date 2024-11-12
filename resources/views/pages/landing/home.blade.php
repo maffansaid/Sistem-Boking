@@ -32,78 +32,69 @@
 <body>
     <x-layout>
 
-        <section id="home"
-            class="w-full justify-center items-start bg-cover bg-center bg-[url('assets/hero.svg')] min-h-screen lg:pl-20 lg:pt-28 lg:pb-20 pl-10 pr-10 pt-36 pb-36 relative overflow-hidden">
+        <section id="home" class="relative min-h-screen w-full items-start justify-center overflow-hidden bg-[url('assets/hero.svg')] bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pb-20 lg:pl-20 lg:pt-28">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16 relative z-10">
+            <div class="relative z-10 mx-auto grid max-w-screen-xl gap-8 px-4 py-8 lg:grid-cols-2 lg:gap-16 lg:py-16">
                 <div class="flex flex-col justify-center">
-                    <h1
-                        class="mb-4 text-2xl font-extrabold tracking-tight leading-none text-white font-bold md:text-5xl lg:text-4xl animate-fadeIn">
+                    <h1 class="animate-fadeIn mb-4 text-2xl font-bold font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-4xl">
                         PENYEWAAN GEDUNG OLAHRAGA BULU TANGKIS POLRES LAMPUNG - SELATAN</h1>
-                    <p class="mb-8 text-lg font-normal text-white lg:text-xl animate-fadeIn">Gedung Olahraga Bulutangkis
+                    <p class="animate-fadeIn mb-8 text-lg font-normal text-white lg:text-xl">Gedung Olahraga Bulutangkis
                         Polres Lampung
                         Selatan merupakan untuk mendukung kegiatan olahraga, terutama bulutangkis. </p>
-                    <div class="flex flex-col lg:space-y-4 space-y-2 sm:flex-row sm:space-y-0 mt-10 animate-fadeIn">
-                        <a href="/UserPemesanan"
-                            class="w-[70%] lg:w-[50%] inline-flex justify-center items-center py-3 px-5 text-base font-medium text-center text-black rounded-lg bg-[#FBB603] transition transform duration-300 hover:scale-110">Sewa
+                    <div class="animate-fadeIn mt-10 flex flex-col space-y-2 sm:flex-row sm:space-y-0 lg:space-y-4">
+                        <a href="/UserPemesanan" class="inline-flex w-[70%] transform items-center justify-center rounded-lg bg-[#FBB603] px-5 py-3 text-center text-base font-medium text-black transition duration-300 hover:scale-110 lg:w-[50%]">Sewa
                             Sekarang!</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="tentang"
-            class="w-full justify-center items-start bg-cover bg-center bg-black pl-10 pr-10 pt-36 pb-36 lg:pl-20 lg:pr-20 lg:pt-20 lg:pb-20">
-            <h1 class="text-white text-[16px] lg:text-[32px] font-bold m-auto text-center animate-fadeIn">Tentang</h1>
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 grid lg:grid-cols-2 gap-8 lg:gap-16">
-                <div class="flex flex-col justify-center order-last lg:order-first">
-                    <p class="mb-8 text-lg font-normal text-white lg:text-xl animate-fadeIn">
+        <section id="tentang" class="w-full items-start justify-center bg-black bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pb-20 lg:pl-20 lg:pr-20 lg:pt-20">
+            <h1 class="animate-fadeIn m-auto text-center text-[16px] font-bold text-white lg:text-[32px]">Tentang</h1>
+            <div class="mx-auto grid max-w-screen-xl gap-8 px-4 py-8 lg:grid-cols-2 lg:gap-16 lg:py-16">
+                <div class="order-last flex flex-col justify-center lg:order-first">
+                    <p class="animate-fadeIn mb-8 text-lg font-normal text-white lg:text-xl">
                         Gedung Olahraga Bulutangkis Polres Lampung Selatan merupakan fasilitas modern yang dirancang
                         khusus untuk mendukung kegiatan olahraga, terutama bulutangkis.</p>
                 </div>
-                <div class="flex flex-col justify-center lg:order-first animate-fadeIn">
+                <div class="animate-fadeIn flex flex-col justify-center lg:order-first">
                     <img src="assets/tentang.svg" class="image-zoom" />
                 </div>
             </div>
         </section>
 
-        <section id="lokasi"
-            class="w-full justify-center items-start bg-cover bg-center bg-[url('assets/lokasi.svg')] pl-10 pr-10 pt-36 pb-36 lg:pl-20 lg:pt-20 lg:pb-20 relative overflow-hidden">
-            <div
-                class="absolute w-full bg-gradient-to-t bg-black opacity-60 from-black z-10 lg:h-20 lg:-ml-20 lg:-mt-20">
+        <section id="lokasi" class="relative w-full items-start justify-center overflow-hidden bg-[url('assets/lokasi.svg')] bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pb-20 lg:pl-20 lg:pt-20">
+            <div class="absolute z-10 w-full bg-black bg-gradient-to-t from-black opacity-60 lg:-ml-20 lg:-mt-20 lg:h-20">
             </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent mt-96 z-10"></div>
-            <h1 class="text-white text-[16px] lg:text-[32px] font-bold m-auto text-center z-10 animate-fadeIn">Lokasi
+            <div class="absolute inset-0 z-10 mt-96 bg-gradient-to-t from-black to-transparent"></div>
+            <h1 class="animate-fadeIn z-10 m-auto text-center text-[16px] font-bold text-white lg:text-[32px]">Lokasi
             </h1>
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-8 z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-8">
+            <div class="z-10 mx-auto max-w-screen-xl px-4 py-8 lg:px-8 lg:py-16">
+                <div class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-8">
                     <div class="flex flex-col justify-center">
-                        <iframe class="w-full h-48 lg:w-[423px] lg:h-[288px] rounded-lg animate-fadeIn"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.152815156867!2d105.57857107586261!3d-5.6910469563062085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4111d361e33821%3A0xcdeed7a91507f499!2sPolres%20Lampung%20Selatan!5e0!3m2!1sid!2sid!4v1729567243832!5m2!1sid!2sid"
-                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe class="animate-fadeIn h-48 w-full rounded-lg lg:h-[288px] lg:w-[423px]" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.152815156867!2d105.57857107586261!3d-5.6910469563062085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e4111d361e33821%3A0xcdeed7a91507f499!2sPolres%20Lampung%20Selatan!5e0!3m2!1sid!2sid!4v1729567243832!5m2!1sid!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div>
-                        <table class="text-white text-sm lg:text-2xl animate-fadeIn">
+                        <table class="animate-fadeIn text-sm text-white lg:text-2xl">
                             <tr>
-                                <td class="lg:py-4 py-2">Nama Daerah</td>
-                                <td class="text-white lg:py-4 py-2">: Kalianda</td>
+                                <td class="py-2 lg:py-4">Nama Daerah</td>
+                                <td class="py-2 text-white lg:py-4">: Kalianda</td>
                             </tr>
                             <tr>
-                                <td class="lg:py-4 py-2">Jalan</td>
-                                <td class="text-white lg:py-4 py-2">: Jln. Lintas Sumatra</td>
+                                <td class="py-2 lg:py-4">Jalan</td>
+                                <td class="py-2 text-white lg:py-4">: Jln. Lintas Sumatra</td>
                             </tr>
                             <tr>
-                                <td class="lg:py-4 py-2">Kecamatan</td>
-                                <td class="text-white lg:py-4 py-2">: Kalianda</td>
+                                <td class="py-2 lg:py-4">Kecamatan</td>
+                                <td class="py-2 text-white lg:py-4">: Kalianda</td>
                             </tr>
                             <tr>
-                                <td class="lg:py-4 py-2">Kabupaten</td>
-                                <td class="text-white lg:py-4 py-2">: Lampung-Selatan</td>
+                                <td class="py-2 lg:py-4">Kabupaten</td>
+                                <td class="py-2 text-white lg:py-4">: Lampung-Selatan</td>
                             </tr>
                             <tr>
-                                <td class="lg:py-4 py-2">Provinsi</td>
-                                <td class="text-white lg:py-4 py-2">: Lampung</td>
+                                <td class="py-2 lg:py-4">Provinsi</td>
+                                <td class="py-2 text-white lg:py-4">: Lampung</td>
                             </tr>
                         </table>
                     </div>
@@ -111,32 +102,26 @@
             </div>
         </section>
 
-        <section id="jadwal"
-            class="w-full justify-center items-start bg-cover bg-center bg-black pl-10 pr-10 pt-36 pb-36 lg:pl-20 lg:pr-20 lg:pt-20">
-            <h1 class="text-white text-[16px] lg:text-[32px] font-bold m-auto text-center animate-fadeIn">Jadwal</h1>
+        <section id="jadwal" class="w-full items-start justify-center bg-black bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pl-20 lg:pr-20 lg:pt-20">
+            <h1 class="animate-fadeIn m-auto text-center text-[16px] font-bold text-white lg:text-[32px]">Jadwal</h1>
 
-            <div
-                class="flex justify-between lg:justify-center space-x-2 lg:space-x-4 mt-5 mb-5 md:mt-10 md:mb-10 animate-fadeIn">
-                <div class="flex flex-col">
-                    <label for="dateInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Pilih
+            <div class="animate-fadeIn mb-5 mt-5 flex justify-between space-x-2 md:mb-10 md:mt-10 lg:justify-center lg:space-x-4">
+                <form class="flex flex-col">
+                    <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Pilih
                         Tanggal</label>
-                    <input type="date" id="dateInput" name=""
-                        class="border rounded-lg p-3 w-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                        onchange="updateDay()">
-                </div>
+                    <input type="date" id="dateInput" name="tanggal" class="w-full rounded-lg border p-3 text-xs shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" value="{{ $tanggal }}" onchange="this.form.submit()">
+                </form>
                 <div class="flex flex-col">
-                    <label for="dayInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Hari</label>
-                    <input type="text" id="dayInput" name=""
-                        class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none text-xs md:text-sm"
-                        placeholder="Hari" readonly>
+                    <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
+                    <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none md:text-sm" placeholder="Hari" readonly>
                 </div>
             </div>
 
-            <div class="relative overflow-x-auto animate-fadeIn">
-                <table class="w-full text-sm text-center rtl:text-right text-black">
-                    <thead class="text-xs text-black uppercase bg-[#FBB603] font-bold">
+            <div class="animate-fadeIn relative overflow-x-auto">
+                <table class="w-full text-center text-sm text-black rtl:text-right">
+                    <thead class="bg-[#FBB603] text-xs font-bold uppercase text-black">
                         <tr>
-                            <th scope="col" class="px-2 py-1 rounded-tl-lg">
+                            <th scope="col" class="rounded-tl-lg px-2 py-1">
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -148,51 +133,19 @@
                             <th scope="col" class="px-6 py-3">
                                 Tanggal
                             </th>
-                            <th scope="col" class="px-6 py-3 rounded-tr-lg">
+                            <th scope="col" class="rounded-tr-lg px-6 py-3">
                                 Jadwal
                             </th>
                         </tr>
                     </thead>
-                    <?php
-                    $dummyData = [
-                        [
-                            'id' => 1,
-                            'nama' => 'Ahmad',
-                            'nama_pb' => 'Garuda',
-                            'tanggal' => '10/31/2024',
-                            'jadwal' => '16:00,17:00,18:00',
-                        ],
-                        [
-                            'id' => 2,
-                            'nama' => 'Fulan',
-                            'nama_pb' => 'Tangkas',
-                            'tanggal' => '10/31/2024',
-                            'jadwal' => '20:00',
-                        ],
-                        [
-                            'id' => 3,
-                            'nama' => 'Siti',
-                            'nama_pb' => 'Mandala',
-                            'tanggal' => '10/31/2024',
-                            'jadwal' => '09:00,12:00,15:00',
-                        ],
-                        [
-                            'id' => 4,
-                            'nama' => 'Budi',
-                            'nama_pb' => 'Rajawali',
-                            'tanggal' => '10/31/2024',
-                            'jadwal' => '14:00,16:00,18:00',
-                        ],
-                    ];
-                    ?>
                     <tbody>
-                        @foreach ($dummyData as $data)
-                            <tr class="bg-white border-b border-[#FBB603]">
-                                <th scope="row" class="px-2 py-1">{{ $data['id'] }}</th>
-                                <td class="px-6 py-4">{{ $data['nama'] }}</td>
-                                <td class="px-6 py-4">{{ $data['nama_pb'] }}</td>
-                                <td class="px-6 py-4">{{ $data['tanggal'] }}</td>
-                                <td class="px-6 py-4">{{ $data['jadwal'] }}</td>
+                        @foreach ($pemesanan as $item)
+                            <tr class="border-b border-[#FBB603] bg-white">
+                                <th scope="row" class="px-2 py-1">{{ $loop->iteration }}</th>
+                                <td class="px-6 py-4">{{ $item->nama }}</td>
+                                <td class="px-6 py-4">{{ $item->nama_pb }}</td>
+                                <td class="px-6 py-4">{{ $item->tanggal }}</td>
+                                <td class="px-6 py-4">{{ Str::substr($item->waktuAwal->waktu, 0, 5) }}-{{ Str::substr($item->waktuAkhir->waktu, 0, 5) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
@@ -200,76 +153,60 @@
             </div>
         </section>
 
-        <section id="galeri"
-            class="w-full justify-center items-start bg-cover bg-center bg-black pl-10 pr-10 pt-36 pb-36 lg:pl-20 lg:pr-20 lg:pt-20 lg:pb-20">
-            <h1 class="text-white text-[16px] lg:text-[32px] font-bold m-auto text-center animate-fadeIn">Gambar</h1>
+        <section id="galeri" class="w-full items-start justify-center bg-black bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pb-20 lg:pl-20 lg:pr-20 lg:pt-20">
+            <h1 class="animate-fadeIn m-auto text-center text-[16px] font-bold text-white lg:text-[32px]">Gambar</h1>
 
-            <div class="flex justify-center items-center">
-                <div class="mt-10 lg:mt-20 mb-10 lg:mb-20 animate-fadeIn">
-                    <div
-                        class="h-[600px] overflow-y-auto overflow-hidden grid grid-cols-1 md:grid-cols-2 md:grid-cols-3 gap-4 ">
+            <div class="flex items-center justify-center">
+                <div class="animate-fadeIn mb-10 mt-10 lg:mb-20 lg:mt-20">
+                    <div class="grid h-[600px] grid-cols-1 gap-4 overflow-hidden overflow-y-auto md:grid-cols-2 md:grid-cols-3">
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking1.png" alt="Image 1" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking1.png" alt="Image 1" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking2.png" alt="Image 2" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking2.png" alt="Image 2" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking3.png" alt="Image 3" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking3.png" alt="Image 3" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking4.png" alt="Image 4" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking4.png" alt="Image 4" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking5.png" alt="Image 5" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking5.png" alt="Image 5" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking6.png" alt="Image 6" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking6.png" alt="Image 6" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking2.png" alt="Image 2" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking2.png" alt="Image 2" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking3.png" alt="Image 3" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking3.png" alt="Image 3" onclick="openModal(this)">
                         </div>
                         <div>
-                            <img class="w-full h-48 object-cover rounded-lg cursor-pointer transition transform duration-300 hover:scale-110"
-                                src="/assets/boking4.png" alt="Image 4" onclick="openModal(this)">
+                            <img class="h-48 w-full transform cursor-pointer rounded-lg object-cover transition duration-300 hover:scale-110" src="/assets/boking4.png" alt="Image 4" onclick="openModal(this)">
                         </div>
                     </div>
                 </div>
-                <div id="imageModal"
-                    class="fixed inset-0 hidden bg-black bg-opacity-75 flex items-center justify-center z-50 pt-20 pb-20 md:pl-0 md:pr-0 pl-5 pr-5">
-                    <span class="absolute top-4 right-4 text-white text-2xl cursor-pointer"
-                        onclick="closeModal()">&times;</span>
-                    <img id="modalImage" class="max-w-full max-h-full rounded-lg">
+                <div id="imageModal" class="fixed inset-0 z-50 flex hidden items-center justify-center bg-black bg-opacity-75 pb-20 pl-5 pr-5 pt-20 md:pl-0 md:pr-0">
+                    <span class="absolute right-4 top-4 cursor-pointer text-2xl text-white" onclick="closeModal()">&times;</span>
+                    <img id="modalImage" class="max-h-full max-w-full rounded-lg">
                 </div>
             </div>
 
         </section>
 
-        <section id="informasi"
-            class="w-full justify-center items-start bg-cover bg-center bg-black pl-10 pr-10 pt-36 pb-36 lg:pl-20 lg:pr-20 lg:pt-20 lg:pb-20">
-            <h1 class="text-white text-[16px] lg:text-[32px] font-bold m-auto text-center animate-fadeIn">Informasi
+        <section id="informasi" class="w-full items-start justify-center bg-black bg-cover bg-center pb-36 pl-10 pr-10 pt-36 lg:pb-20 lg:pl-20 lg:pr-20 lg:pt-20">
+            <h1 class="animate-fadeIn m-auto text-center text-[16px] font-bold text-white lg:text-[32px]">Informasi
             </h1>
-            <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:flex gap-8 lg:gap-8">
-                <div class="flex lg:w-[25%] justify-center order-last lg:order-first m-auto">
-                    <p class="mb-8 text-lg font-normal text-white lg:text-xl mt-4 animate-fadeIn">"Periksa informasi
+            <div class="mx-auto max-w-screen-xl gap-8 px-4 py-8 lg:flex lg:gap-8 lg:py-16">
+                <div class="order-last m-auto flex justify-center lg:order-first lg:w-[25%]">
+                    <p class="animate-fadeIn mb-8 mt-4 text-lg font-normal text-white lg:text-xl">"Periksa informasi
                         ini untuk
                         mendapatkan
                         pemahaman yang lebih baik."</p>
-                    <div class="absolute lg:-mt-36 -mt-8 ml-60 animate-fadeIn">
-                        <svg viewBox="0 0 77 422" fill="none"
-                            class="h-[150px] w-[35px] lg:h-[410px] lg:w-[77px] mr-6"
-                            xmlns="http://www.w3.org/2000/svg">
+                    <div class="animate-fadeIn absolute -mt-8 ml-60 lg:-mt-36">
+                        <svg viewBox="0 0 77 422" fill="none" class="mr-6 h-[150px] w-[35px] lg:h-[410px] lg:w-[77px]" xmlns="http://www.w3.org/2000/svg">
                             <ellipse cx="4.5" cy="5" rx="4.5" ry="5" fill="#FBB603" />
                             <ellipse cx="21.5" cy="5" rx="4.5" ry="5" fill="#FBB603" />
                             <ellipse cx="38.5" cy="5" rx="4.5" ry="5" fill="#FBB603" />
@@ -353,67 +290,37 @@
                         </svg>
                     </div>
                 </div>
-                <div class="flex lg:w-[75%] justify-center lg:order-first lg:mt-0 mt-10 animate-fadeIn">
+                <div class="animate-fadeIn mt-10 flex justify-center lg:order-first lg:mt-0 lg:w-[75%]">
                     {{-- <img src="assets/informasi.svg" /> --}}
                     <div id="default-carousel" class="relative w-full" data-carousel="slide">
                         <!-- Carousel wrapper -->
-                        <div class="relative h-56 overflow-hidden rounded-lg md:rounded-[50px] md:h-[450px]">
-                            <!-- Item 1 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="assets/informasi.svg"
-                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    alt="...">
-                            </div>
-                            <!-- Item 2 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="assets/boking1.png"
-                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    alt="...">
-                            </div>
-                            <!-- Item 3 -->
-                            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                                <img src="assets/boking2.png"
-                                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                                    alt="...">
-                            </div>
+                        <div class="relative h-56 overflow-hidden rounded-lg md:h-[450px] md:rounded-[50px]">
+                            @foreach ($informasi as $item)
+                                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                                    <img src="{{ $item->gambar }}" class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2" alt="...">
+                                    {{ $item->judul }}
+                                </div>
+                            @endforeach
                         </div>
                         <!-- Slider indicators -->
-                        <div
-                            class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="true"
-                                aria-label="Slide 1" data-carousel-slide-to="0"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                                aria-label="Slide 2" data-carousel-slide-to="1"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                                aria-label="Slide 3" data-carousel-slide-to="2"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                                aria-label="Slide 4" data-carousel-slide-to="3"></button>
-                            <button type="button" class="w-3 h-3 rounded-full" aria-current="false"
-                                aria-label="Slide 5" data-carousel-slide-to="4"></button>
+                        <div class="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse">
+                            @for ($i = 0; $i < $informasi->count(); $i++)
+                                <button type="button" class="h-3 w-3 rounded-full" aria-current="true" aria-label="Slide {{ $i + 1 }}" data-carousel-slide-to="{{ $i }}"></button>
+                            @endfor
                         </div>
                         <!-- Slider controls -->
-                        <button type="button"
-                            class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                            data-carousel-prev>
-                            <span
-                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="M5 1 1 5l4 4" />
+                        <button type="button" class="group absolute start-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none" data-carousel-prev>
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+                                <svg class="h-4 w-4 text-white rtl:rotate-180 dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
                                 </svg>
                                 <span class="sr-only">Previous</span>
                             </span>
                         </button>
-                        <button type="button"
-                            class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-                            data-carousel-next>
-                            <span
-                                class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-                                <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true"
-                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                        stroke-width="2" d="m1 9 4-4-4-4" />
+                        <button type="button" class="group absolute end-0 top-0 z-30 flex h-full cursor-pointer items-center justify-center px-4 focus:outline-none" data-carousel-next>
+                            <span class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/30 group-hover:bg-white/50 group-focus:outline-none group-focus:ring-4 group-focus:ring-white dark:bg-gray-800/30 dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+                                <svg class="h-4 w-4 text-white rtl:rotate-180 dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
                                 </svg>
                                 <span class="sr-only">Next</span>
                             </span>
@@ -453,6 +360,10 @@
             const modal = document.getElementById('imageModal');
             modal.classList.add('hidden');
         }
+
+        window.onload = () => {
+            updateDay();
+        };
     </script>
 </body>
 

@@ -22,26 +22,26 @@
 
 <body>
     <x-sideBarAdmin />
-    <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
+    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
         <div class="m-5 lg:m-20">
-            <div class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-10">
+            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-white">
                 Daftar Riwayat</div>
             <div class="md:flex md:justify-between">
-                <div class="flex md:justify-start gap-4">
-                    <div class="flex flex-col w-full">
-                        <label for="dateInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Tanggal</label>
-                        <input name="tanggalMulai" type="date" id="dateInput"
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="" onchange="updateDay()" />
-                    </div>
-                    <div class="flex flex-col w-full">
-                        <label for="dayInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Hari</label>
-                        <input type="text" id="dayInput" name=""
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="Hari" readonly>
+                <div class="flex gap-4 md:justify-start">
+                    <form class="flex w-full flex-col">
+                        <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
+                        <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" value="{{ $tanggal?->format('Y-m-d') ?? '' }}" onchange="this.form.submit()" />
+                    </form>
+                    <div class="flex w-full flex-col">
+                        <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
+                        <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="Hari" readonly>
                     </div>
                 </div>
                 <script>
+                    window.onload = () => {
+                        updateDay();
+                    };
+
                     function updateDay() {
                         const dateInput = document.getElementById('dateInput').value;
                         const dayInput = document.getElementById('dayInput');
@@ -57,11 +57,11 @@
                     }
                 </script>
             </div>
-            <div class="relative overflow-x-auto mt-4">
-                <table class="w-full text-sm text-center rtl:text-right text-black">
-                    <thead class="text-xs text-black uppercase bg-[#FBB603] font-bold">
+            <div class="relative mt-4 overflow-x-auto">
+                <table class="w-full text-center text-sm text-black rtl:text-right">
+                    <thead class="bg-[#FBB603] text-xs font-bold uppercase text-black">
                         <tr>
-                            <th scope="col" class="px-2 py-1 rounded-tl-lg">
+                            <th scope="col" class="rounded-tl-lg px-2 py-1">
                                 No
                             </th>
                             <th scope="col" class="px-6 py-3">
@@ -77,38 +77,45 @@
                                 Jadwal
                             </th>
                             <th scope="col" class="px-6 py-3">
+                                Status
+                            </th>
+                            <th scope="col" class="px-6 py-3">
                                 Aksi
                             </th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr class="bg-white border-b border-[#FBB603]">
-                            <th scope="row" class="px-2 py-1 font-medium text-black whitespace-nowrap">
-                                1
-                            </th>
-                            <td class="px-6 py-4">
-                                Ahmad
-                            </td>
-                            <td class="px-6 py-4">
-                                Garuda
-                            </td>
-                            <td class="px-6 py-4">
-                                12/10/2002
-                            </td>
-                            <td class="px-6 py-4">
-                                16:00,17:00,18:00
-                            </td>
-                            <td class="px-6 py-4">
-                                <div class="flex justify-items-center m-auto text-center justify-center gap-2">
-                                    <a href="/BagianRiwayat/lihatRiwayat" title="lihat">
-                                        <div
-                                            class="bg-[#FA8F21] dark:bg-[#FA8F21] hover:bg-[#D87815] dark:hover:bg-[#D87815] p-1 rounded-md">
-                                            <x-svg-lihat />
-                                        </div>
-                                    </a>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach ($pemesanan as $item)
+                            <tr class="border-b border-[#FBB603] bg-white">
+                                <th scope="row" class="whitespace-nowrap px-2 py-1 font-medium text-black">
+                                    {{ $loop->iteration }}
+                                </th>
+                                <td class="px-6 py-4">
+                                    {{ $item->nama }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->nama_pb }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->tanggal }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ Str::substr($item->waktuAwal->waktu, 0, 5) }}-{{ Str::substr($item->waktuAkhir->waktu, 0, 5) }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    {{ $item->status ? 'Telah dibayar' : 'Belum dibayar' }}
+                                </td>
+                                <td class="px-6 py-4">
+                                    <div class="m-auto flex justify-center justify-items-center gap-2 text-center">
+                                        <a href="/BagianRiwayat/{{ $item->id }}/detail" title="lihat">
+                                            <div class="rounded-md bg-[#FA8F21] p-1 hover:bg-[#D87815] dark:bg-[#FA8F21] dark:hover:bg-[#D87815]">
+                                                <x-svg-lihat />
+                                            </div>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </tbody>
                 </table>
             </div>

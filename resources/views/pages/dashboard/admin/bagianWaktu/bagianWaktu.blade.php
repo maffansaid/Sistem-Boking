@@ -22,24 +22,20 @@
 
 <body>
     <x-sideBarAdmin />
-    <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
+    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
         <div class="m-5 lg:m-20">
-            <div class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-10">
+            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-white">
                 Kelola Waktu</div>
 
             <div class="md:flex md:justify-between">
-                <div class="flex md:justify-start gap-4">
-                    <div class="flex flex-col w-full">
-                        <label for="dateInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Tanggal</label>
-                        <input name="tanggalMulai" type="date" id="dateInput"
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="" onchange="updateDay()" />
-                    </div>
-                    <div class="flex flex-col w-full">
-                        <label for="dayInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Hari</label>
-                        <input type="text" id="dayInput" name=""
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="Hari" readonly>
+                <div class="flex gap-4 md:justify-start">
+                    <form class="flex w-full flex-col">
+                        <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
+                        <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" value="{{ $tanggal->format('Y-m-d') }}" onchange="this.form.submit()" />
+                    </form>
+                    <div class="flex w-full flex-col">
+                        <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
+                        <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="Hari" readonly>
                     </div>
                 </div>
                 <script>
@@ -56,23 +52,34 @@
                             dayInput.value = '';
                         }
                     }
+                    window.onload = () => {
+                        updateDay();
+                    };
                 </script>
             </div>
 
             <div class="mt-4">
-                <div class="grid lg:grid-cols-6 lg:gap-4 p-4 grid-cols-3 gap-2">
-                    <?php for ($hour = 6; $hour <= 24; $hour++): ?>
-                    <button
-                        class="btn border-none time-button bg-green-500 rounded-full p-4 text-white hover:bg-green-700"
-                        data-time="<?= sprintf('%02d.00', $hour) ?>"><?= sprintf('%02d.00', $hour) ?></button>
-                    <?php endfor; ?>
-                </div>
+                <form id="form" action="" method="POST" class="grid grid-cols-3 gap-2 p-4 lg:grid-cols-6 lg:gap-4">
+                    @csrf
+                    <input type="hidden" name="tanggal" value="{{ $tanggal }}">
+                    @foreach ($waktu as $item)
+                        @php
+                            $disabled = $pemesanan
+                                ->where('waktu_awal_id', '<=', $item->id)
+                                ->where('waktu_akhir_id', '>=', $item->id)
+                                ->count();
+                        @endphp
+                        <div class="flex items-center justify-center">
+                            <input type="checkbox" id="{{ $item->id }}" name="waktu[]" class="peer hidden" value="{{ $item->id }}" @checked($item->terhapus->count()) @disabled($disabled) />
+                            <label for="{{ $item->id }}" class="{{ $disabled ? 'bg-yellow-300' : 'bg-green-500 hover:bg-gray-300 peer-checked:bg-gray-300 peer-focus:bg-gray-300' }} rounded-full border-none p-4 text-center text-white">{{ Str::substr($item->waktu, 0, 5) }}</label>
+                        </div>
+                    @endforeach
+                </form>
                 <div class="flex justify-end">
-                    <button id="submit-btn"
-                        class="mt-4 bg-[#FBB603] hover:bg-[#99FF33] text-white p-2 rounded font-bold">Kirim
+                    <button type="button" onclick="document.getElementById('form').submit()" class="mt-4 rounded bg-[#FBB603] p-2 font-bold text-white hover:bg-[#99FF33]">Kirim
                         Pilihan</button>
                 </div>
-                <div class="bg-white w-1/2 flex justify-start p-4 rounded-lg">
+                <div class="flex w-1/2 justify-start rounded-lg bg-white p-4">
                     <div class="">
                         <h2 class="text-sm md:text-base">Hijau : Aktif</h2>
                         <h2 class="text-sm md:text-base">Abu-Abu : Nonaktif</h2>

@@ -22,106 +22,63 @@
 
 <body>
     <x-sideBarUser />
-    <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
-        <div class="m-5 lg:m-10">
-            <div
-                class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-5 md:mb-10">
+    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
+        <form id="filter-tanggal" action="" class="hidden">
+            <input id="tanggal" type="date" name="tanggal" value="{{ $tanggal->format('Y-m-d') }}">
+        </form>
+        <form action="" method="POST" class="m-5 lg:m-10">
+            @csrf
+            <div class="m-auto mb-5 flex items-center justify-center text-center text-[30px] font-bold text-white md:mb-10">
                 Kelola Waktu</div>
             <div class="md:flex md:justify-between">
-                <div class="flex md:justify-start gap-4">
-                    <div class="flex flex-col w-full">
-                        <label for="dateInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Tanggal</label>
-                        <input name="tanggalMulai" type="date" id="dateInput"
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="" onchange="updateDay()" />
+                <div class="flex gap-4 md:justify-start">
+                    <div class="flex w-full flex-col">
+                        <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
+                        <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" onchange="updateDay(this.value)" value="{{ $tanggal->format('Y-m-d') }}" />
                     </div>
 
-                    <div class="flex flex-col w-full">
-                        <label for="dayInput" class="mb-1 text-xs md:text-sm font-semibold text-white">Hari</label>
-                        <input type="text" id="dayInput" name=""
-                            class="border rounded-lg p-3 w-full bg-white text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 text-xs md:text-sm"
-                            placeholder="Hari" readonly>
+                    <div class="flex w-full flex-col">
+                        <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
+                        <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="Hari" readonly>
                     </div>
                 </div>
-                <div
-                    class="text-xs sm:text-sm md:text-lg lg:text-xl text-white font-bold flex items-center justify-center mt-4">
+                <div class="mt-4 flex items-center justify-center text-xs font-bold text-white sm:text-sm md:text-lg lg:text-xl">
                     Harga Lapangan : 30 k / jam
                 </div>
             </div>
             <div class="mt-4">
-                <div class="grid lg:grid-cols-6 lg:gap-4 grid-cols-3 gap-2">
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="06.00">06.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="07.00">07.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="08.00">08.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="09.00">09.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="10.00">10.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="11.00">11.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="12.00">12.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="13.00">13.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="14.00">14.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="15.00">15.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="16.00">16.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="17.00">17.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="18.00">18.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="19.00">19.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="20.00">20.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="21.00">21.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="22.00">22.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="23.00">23.00</button>
-                    <button
-                        class="btn border-none time-button bg-gray-300 rounded-full p-4 text-white hover:bg-green-500"
-                        data-time="24.00">24.00</button>
+                @error('tanggal')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+                @error('waktu')
+                    <p class="text-red-500">{{ $message }}</p>
+                @enderror
+                <div class="grid grid-cols-3 gap-2 lg:grid-cols-6 lg:gap-4">
+                    @foreach ($waktu as $item)
+                        @php
+                            $disabled =
+                                $pemesanan
+                                    ->where('waktu_awal_id', '<=', $item->id)
+                                    ->where('waktu_akhir_id', '>=', $item->id)
+                                    ->count() || $item->terhapus->count();
+                        @endphp
+                        <div class="flex items-center justify-center">
+                            <input type="checkbox" id="{{ $item->id }}" name="waktu[]" class="peer hidden" value="{{ $item->id }}" @checked(in_array($item->id, session('waktu') ?? [])) @disabled($disabled) />
+                            <label for="{{ $item->id }}" class="rounded-full border-none bg-gray-300 p-4 text-center text-white hover:bg-green-500 peer-checked:bg-green-500 peer-focus:bg-green-500 peer-disabled:bg-red-500">{{ Str::substr($item->waktu, 0, 5) }}</label>
+                        </div>
+                    @endforeach
                 </div>
             </div>
             <div class="flex justify-between">
                 <div class="div">
-                    <a href="/UserPemesanan"
-                        class="block text-black bg-[#FBB603] hover:bg-[#99FF33] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mt-10 font-bold">
+                    <a href="/UserPemesanan" class="mt-10 block rounded-lg bg-[#FBB603] px-5 py-2.5 text-sm font-bold text-black hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
                         <div class="flex gap-2">
-                            <svg class="h-5 w-5" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
-                                fill="#000000">
+                            <svg class="h-5 w-5" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
                                     <path fill="#000000" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z"></path>
-                                    <path fill="#000000"
-                                        d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z">
+                                    <path fill="#000000" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z">
                                     </path>
                                 </g>
                             </svg>
@@ -130,31 +87,30 @@
                     </a>
                 </div>
                 <div class="div">
-                    <a href="/UserPembayaran"
-                        class="block text-black bg-[#FBB603] hover:bg-[#99FF33] focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-sm px-5 py-2.5 mt-10 font-bold">
-                        <button id="submit-btn" class="flex gap-2">
+                    <div class="mt-10 block rounded-lg bg-[#FBB603] px-5 py-2.5 text-sm font-bold text-black hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        <button type="submit" class="flex gap-2">
                             <div class="div">Selanjutnya</div>
-                            <svg class="w-5 h-5" viewBox="0 0 24 24" id="_24x24_On_Light_Next"
-                                data-name="24x24/On Light/Next" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+                            <svg class="h-5 w-5" viewBox="0 0 24 24" id="_24x24_On_Light_Next" data-name="24x24/On Light/Next" xmlns="http://www.w3.org/2000/svg" fill="#000000">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                                 <g id="SVGRepo_iconCarrier">
-                                    <rect id="view-box" width="24" height="24" fill="#141124"
-                                        opacity="0">
+                                    <rect id="view-box" width="24" height="24" fill="#141124" opacity="0">
                                     </rect>
-                                    <path id="Shape"
-                                        d="M10.22,9.28a.75.75,0,0,1,0-1.06l2.72-2.72H.75A.75.75,0,0,1,.75,4H12.938L10.22,1.281A.75.75,0,1,1,11.281.22l4,4a.749.749,0,0,1,0,1.06l-4,4a.75.75,0,0,1-1.061,0Z"
-                                        transform="translate(4.25 7.25)" fill="#141124"></path>
+                                    <path id="Shape" d="M10.22,9.28a.75.75,0,0,1,0-1.06l2.72-2.72H.75A.75.75,0,0,1,.75,4H12.938L10.22,1.281A.75.75,0,1,1,11.281.22l4,4a.749.749,0,0,1,0,1.06l-4,4a.75.75,0,0,1-1.061,0Z" transform="translate(4.25 7.25)" fill="#141124"></path>
                                 </g>
                             </svg>
                         </button>
-                    </a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
     <script>
-        function updateDay() {
+        window.onload = function() {
+            updateDay({{ $tanggal->format('Y-m-d') }}, false);
+        }
+
+        function updateDay(value, reload = true) {
             const dateInput = document.getElementById('dateInput').value;
             const dayInput = document.getElementById('dayInput');
 
@@ -165,6 +121,10 @@
                 dayInput.value = day;
             } else {
                 dayInput.value = '';
+            }
+            if (reload) {
+                document.getElementById('tanggal').value = value;
+                document.getElementById('filter-tanggal').submit();
             }
         }
 

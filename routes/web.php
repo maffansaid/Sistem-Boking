@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\Informasi;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landing;
+use App\Http\Controllers\Otentifikasi;
+use App\Http\Controllers\Pemesanan;
+use App\Http\Controllers\Waktu;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,37 +19,63 @@ use App\Http\Controllers\Landing;
 */
 
 
-Route::controller(Landing::class) -> group(function () {
-    // awal login
-    Route::get('/Login', 'login');
-    Route::get('/Lupa-Password', 'lupapassword');
-    Route::get('/Otp', 'otp');
-    Route::get('/NewPassword', 'newpassword');
-    // akhir login
-
+Route::controller(Landing::class)->group(function () {
     // Awal Landing Page
-    Route::get('/', 'home');
+    Route::get('/', 'home')->name('home');
     // Akhir Landing Page
 
     // Awal Admin
-    Route::get('/BagianInformasi', 'bagianInformasi');
+    // Route::get('/BagianPermintaan2', 'bagianPermintaan2');
 
-    Route::get('/BagianWaktu', 'bagianWaktu');
-
-    Route::get('/BagianPermintaan', 'bagianPermintaan');
-    Route::get('/BagianPermintaan2', 'bagianPermintaan2');
-
-    Route::get('/BagianRiwayat', 'bagianRiwayat');
-    Route::get('/BagianRiwayat/lihatRiwayat', 'lihatRiwayat');
+    // Route::get('/BagianRiwayat/lihatRiwayat', 'lihatRiwayat');
     // Akhir Admin
+});
 
-    // Awal User
-    Route::get('/UserPemesanan', 'userPemesanan');
+Route::controller(Otentifikasi::class)->group(function () {
+    Route::get('/Login', 'tampilanLogin')->name('login');
+    Route::post('/Login', 'login');
 
-    Route::get('/UserWaktu', 'userWaktu');
+    Route::get('/Logout', 'logout');
 
-    Route::get('/UserPembayaran', 'userPembayaran');
+    Route::get('/Lupa-Password', 'tampilanLupaPassword');
+    Route::post('/Lupa-Password', 'lupaPassword');
 
-    Route::get('/UserSelesai', 'userSelesai');
-    // Akhir User
+    Route::get('/Otp', 'tampilanOtp');
+    Route::post('/Otp', 'otp');
+
+    Route::get('/NewPassword', 'tampilanPasswordBaru');
+    Route::post('/NewPassword', 'passwordBaru');
+});
+
+Route::controller(Informasi::class)->middleware('auth:web')->group(function () {
+    Route::get('/BagianInformasi', 'tampilan');
+    Route::post('/BagianInformasi', 'tambah');
+    Route::delete('/BagianInformasi', 'hapus');
+});
+
+Route::controller(Waktu::class)->middleware('auth:web')->group(function () {
+    Route::get('/BagianWaktu', 'tampilan');
+    Route::post('/BagianWaktu', 'hapusWaktu');
+});
+
+Route::controller(Pemesanan::class)->group(function () {
+    Route::middleware('auth:web')->group(function () {
+        Route::get('/BagianPermintaan/{id}/detail', 'tampilanAdminDetailPermintaan');
+        Route::get('/BagianPermintaan', 'tampilanAdminPermintaan');
+        Route::delete('/BagianPermintaan', 'hapusPermintaan');
+
+        Route::get('/BagianRiwayat/{id}/detail', 'tampilanAdminDetailRiwayat');
+        Route::get('/BagianRiwayat', 'tampilanAdminRiwayat');
+    });
+
+    Route::get('/UserPemesanan', 'tampilanBiodata');
+    Route::post('/UserPemesanan', 'tambahBiodata');
+
+    Route::get('/UserWaktu', 'tampilanWaktu');
+    Route::post('/UserWaktu', 'tambahWaktu');
+
+    Route::get('/UserPembayaran', 'tampilanPembayaran');
+    Route::post('/UserPembayaran', 'tambahTransaksi');
+
+    Route::get('/UserSelesai', 'tampilanSelesai');
 });

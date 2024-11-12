@@ -2,72 +2,105 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Informasi;
+use App\Models\Pemesanan;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Builder;
-
-use App\Models\Sekolah;
+use Illuminate\Support\Carbon;
 
 class Landing extends Controller
 {
     // awal login
-    function login () {
+    function login()
+    {
         return view('pages/dashboard/admin/login');
     }
-    function lupapassword () {
+    function lupapassword()
+    {
         return view('pages/dashboard/admin/lupaPassword');
     }
-    function otp () {
+    function otp()
+    {
         return view('pages/dashboard/admin/otp');
     }
-    function newpassword () {
+    function newpassword()
+    {
         return view('pages/dashboard/admin/newpassword');
     }
     // akhir login
 
     // Awal Landing page
-    function home () {
-        return view('pages/landing/home');
+    function home(Request $request)
+    {
+        $tanggal = $request->query('tanggal');
+        $pemesanan = Pemesanan::with(['waktuAwal', 'waktuAkhir'])
+            ->where(function (Builder $query) use ($tanggal) {
+                if ($tanggal) {
+                    $query->whereDate('tanggal', $tanggal);
+                } else {
+                    $query->whereDate('tanggal', '>=', Carbon::now());
+                }
+            })
+            ->orderBy('tanggal')
+            ->get();
+        $informasi = Informasi::latest()->get();
+
+        return view('pages/landing/home', compact([
+            'informasi',
+            'pemesanan',
+            'tanggal',
+        ]));
     }
     // Akhir landing page
 
     // Awal Admin
-    function bagianInformasi () {
+    function bagianInformasi()
+    {
         return view('pages/dashboard/admin/bagianInformasi/bagianInformasi');
     }
 
-    function bagianWaktu () {
+    function bagianWaktu()
+    {
         return view('pages/dashboard/admin/bagianWaktu/bagianWaktu');
     }
 
-    function bagianPermintaan () {
+    function bagianPermintaan()
+    {
         return view('pages/dashboard/admin/bagianPermintaan/bagianPermintaan');
     }
-    function bagianPermintaan2 () {
+    function bagianPermintaan2()
+    {
         return view('pages/dashboard/admin/bagianPermintaan/bagianPermintaan2');
     }
 
-    function bagianRiwayat () {
+    function bagianRiwayat()
+    {
         return view('pages/dashboard/admin/bagianRiwayat/bagianRiwayat');
     }
-    function lihatRiwayat () {
+    function lihatRiwayat()
+    {
         return view('pages/dashboard/admin/bagianRiwayat/lihatRiwayat');
     }
     // Akhir Admin
 
     // Awal User
-    function userPemesanan () {
+    function userPemesanan()
+    {
         return view('pages/dashboard/user/userPemesanan');
     }
 
-    function userWaktu () {
+    function userWaktu()
+    {
         return view('pages/dashboard/user/userWaktu');
     }
 
-    function userPembayaran () {
+    function userPembayaran()
+    {
         return view('pages/dashboard/user/userPembayaran');
     }
 
-    function userSelesai () {
+    function userSelesai()
+    {
         return view('pages/dashboard/user/userSelesai');
     }
     // Akhir User

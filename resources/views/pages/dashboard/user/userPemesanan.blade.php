@@ -22,43 +22,47 @@
 
 <body>
     <x-sideBarUser />
-    <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
-        <div class="m-5 lg:m-10">
-            <div class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-10">
+    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
+        <form method="POST" class="m-5 lg:m-10">
+            @csrf
+            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-white">
                 Form Pemesanan</div>
             <div class="w-full">
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="name" class="block mb-2 text-[12px] font-medium text-white">Nama </label>
-                    <input type="text" name="" id="nama"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="name" class="mb-2 block text-[12px] font-medium text-white">Nama </label>
+                    <input type="text" name="nama" id="nama" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Nama" value="{{ session('nama') }}" required>
+                    @error('nama')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="no_telpon" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
-                    <input type="number" name="" id="no_telpon"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="No Telpon" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="no_telpon" class="mb-2 block text-[12px] font-medium text-white">No Telpon</label>
+                    <input type="text" name="no_telpon" id="no_telpon" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="No Telpon" value="{{ session('no_telpon') }}" required>
+                    @error('no_telpon')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="email" class="block mb-2 text-[12px] font-medium text-white">Email</label>
-                    <input type="email" name="" id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Email" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="email" class="mb-2 block text-[12px] font-medium text-white">Email</label>
+                    <input type="email" name="email" id="email" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Email" value="{{ session('email') }}" required>
+                    @error('email')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="nama_pb" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
-                    <input type="text" name="" id="nama_pb"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama PB" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="nama_pb" class="mb-2 block text-[12px] font-medium text-white">Nama PB</label>
+                    <input type="text" name="nama_pb" id="nama_pb" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Nama PB" value="{{ session('nama_pb') }}" required>
+                    @error('nama_pb')
+                        <p class="text-red-500">{{ $message }}</p>
+                    @enderror
                 </div>
             </div>
             <div class="flex justify-end">
-                <a href="/UserWaktu"
-                    class="block text-black bg-[#FBB603] hover:bg-[#99FF33] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mt-10">
+                <button type="submit" class="mt-10 block rounded-lg bg-[#FBB603] px-5 py-2.5 text-sm font-medium text-black hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
                     Selanjutnya >
-                </a>
+                </button>
             </div>
-        </div>
+        </form>
     </div>
 </body>
 

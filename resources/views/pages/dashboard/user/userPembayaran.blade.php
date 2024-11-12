@@ -22,75 +22,63 @@
 
 <body>
     <x-sideBarUser />
-    <div class="p-4 sm:ml-64 bg-[#A40000] min-h-screen">
+    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
         <div class="m-5 lg:m-10">
-            <div class="flex m-auto text-center justify-center items-center text-[30px] font-bold text-white mb-10">
+            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-white">
                 Pembayaran</div>
-            <div class="w-full">
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="nama" class="block mb-2 text-[12px] font-medium text-white">Nama </label>
-                    <input type="text" name="" id="nama"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama" required>
+            @error('server')
+                <p class="text-red-500">{{ $message }}</p>
+            @enderror
+            <form action="" method="POST" class="w-full">
+                @csrf
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="nama" class="mb-2 block text-[12px] font-medium text-white">Nama </label>
+                    <input type="text" name="" id="nama" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Nama" value="{{ session('nama') }}" disabled>
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="nomor_telpon" class="block mb-2 text-[12px] font-medium text-white">No Telpon</label>
-                    <input type="number" name="" id="nomor_telpon"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="No Telpon" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="nomor_telpon" class="mb-2 block text-[12px] font-medium text-white">No Telpon</label>
+                    <input type="number" name="" id="nomor_telpon" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="No Telpon" value="{{ session('no_telpon') }}" disabled>
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="email" class="block mb-2 text-[12px] font-medium text-white">Email</label>
-                    <input type="email" name="" id="email"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Email" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="email" class="mb-2 block text-[12px] font-medium text-white">Email</label>
+                    <input type="email" name="" id="email" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Email" value="{{ session('email') }}" disabled>
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2">
-                    <label for="nama_pb" class="block mb-2 text-[12px] font-medium text-white">Nama PB</label>
-                    <input type="text" name="" id="nama_pb"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                        placeholder="Nama PB" required>
+                <div class="mb-2 mt-2 lg:mb-3">
+                    <label for="nama_pb" class="mb-2 block text-[12px] font-medium text-white">Nama PB</label>
+                    <input type="text" name="" id="nama_pb" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Nama PB" value="{{ session('nama_pb') }}" disabled>
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2 flex justify-between gap-5">
+                <div class="mb-2 mt-2 flex justify-between gap-5 lg:mb-3">
                     <div class="w-1/2">
-                        <label for="tanggal" class="block mb-2 text-[12px] font-medium text-white">Tanggal</label>
-                        <input name="" type="date" id="DateTime"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Masukkan Tanggal dan Waktu" required />
+                        <label for="tanggal" class="mb-2 block text-[12px] font-medium text-white">Tanggal</label>
+                        <input name="" type="date" id="DateTime" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Masukkan Tanggal dan Waktu" value="{{ \Carbon\Carbon::parse(session('tanggal'))->format('Y-m-d') }}" disabled />
                     </div>
                     <div class="w-1/2">
-                        <label for="jam" class="block mb-2 text-[12px] font-medium text-white">Jam</label>
-                        <input name="" type="time" id="DateTime"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Masukkan Jam" required />
+                        <label for="jam" class="mb-2 block text-[12px] font-medium text-white">Jam</label>
+                        <input name="" type="text" id="DateTime" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="Masukkan Jam" value="{{ Str::substr(Arr::first(session('waktu_raw')), 0, 5) }}-{{ Str::substr(Arr::last(session('waktu_raw')), 0, 5) }}" disabled />
                     </div>
                 </div>
-                <div class="mb-2 lg:mb-3 mt-2 flex justify-between gap-5">
+                <div class="mb-2 mt-2 flex justify-between gap-5 lg:mb-3">
                     <div class="w-1/2">
-                        <label for="bank" class="block mb-2 text-[12px] font-medium text-white">Transfer Bank</label>
-                        <select id="bank" name=""
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            required>
+                        <label for="bank" class="mb-2 block text-[12px] font-medium text-white">Transfer Bank</label>
+                        <select id="bank" name="metode" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" required>
                             <option value="" disabled selected>Pilih Bank</option>
-                            {{-- <option value="BCA">Bank Central Asia (BCA)</option> --}}
-                            <option value="BNI">Bank Negara Indonesia (BNI)</option>
+                            <option value="BRIVA">BRI VA</option>
+                            <option value="BNIVA">BNI VA</option>
+                            <option value="BCAVA">BCA VA</option>
                         </select>
                     </div>
                     <div class="w-1/2">
-                        <label for="name" class="block mb-2 text-[12px] font-medium text-white">Total
+                        <label for="name" class="mb-2 block text-[12px] font-medium text-white">Total
                             Pembayaran</label>
-                        <input type="number" name="" id="total_pembayaran"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5"
-                            placeholder="Rp. 100.000" required>
+                        <input type="text" name="" id="total_pembayaran" class="focus:ring-primary-600 focus:border-primary-600 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900" placeholder="" value="Rp. {{ number_format(session('harga'), 0, '', '.') }}" disabled>
                     </div>
                 </div>
                 <div class="flex justify-end">
-                    <a href="/UserSelesai"
-                        class="text-black inline-flex items-center bg-[#FBB603] hover:bg-[#99FF33] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+                    <button type="submit" class="inline-flex items-center rounded-lg bg-[#FBB603] px-5 py-2.5 text-center text-sm font-medium text-black hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
                         Bayar >
-                    </a>
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
     <script>
