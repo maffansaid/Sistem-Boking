@@ -116,7 +116,8 @@ class Pemesanan extends Controller
 
         try {
             Mail::to($pemesanan->email)->send(new HapusPemesanan([
-                ...$pemesanan->toArray(),
+                ...$pemesanan->toArray(), 
+                'pesan'=> $validate['pesan'],
                 'waktu_selesai' => $pemesanan->waktuAkhir->waktu,
                 'waktu_mulai' => $pemesanan->waktuAwal->waktu,
             ]));

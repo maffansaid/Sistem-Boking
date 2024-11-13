@@ -1,5 +1,5 @@
 <div>
-    <h1>Pembayaran Berhasil</h1>
+    <p>{{$data['pesan']}}</p>
 
     <p>Pemesanan lapangan dengan rincian sebagai berikut : </p>
     <table>

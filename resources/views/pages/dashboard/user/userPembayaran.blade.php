@@ -64,7 +64,6 @@
                             <option value="" disabled selected>Pilih Bank</option>
                             <option value="BRIVA">BRI VA</option>
                             <option value="BNIVA">BNI VA</option>
-                            <option value="BCAVA">BCA VA</option>
                         </select>
                     </div>
                     <div class="w-1/2">
