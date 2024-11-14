@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Landing;
 use App\Http\Controllers\Otentifikasi;
 use App\Http\Controllers\Pemesanan;
+use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\Waktu;
 
 /*
@@ -79,3 +80,6 @@ Route::controller(Pemesanan::class)->group(function () {
 
     Route::get('/UserSelesai', 'tampilanSelesai');
 });
+
+Route::get('/transaksi/{id}', [TransaksiController::class, 'show'])->name('transaksi.show');
+Route::get('/transaksi/{id}/download-pdf', [TransaksiController::class, 'downloadPdf'])->name('transaksi.download-pdf');

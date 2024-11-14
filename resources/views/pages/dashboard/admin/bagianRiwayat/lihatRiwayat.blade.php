@@ -78,7 +78,7 @@
                     <div>
                         <img id="bukti_pembayaran" class="grayscale-100 h-auto w-full rounded-lg filter" src="/assets/hero.svg" alt="">
                         <div class="mt-5 flex justify-end lg:mt-5">
-                            <button id="unduh_btn" class="inline-flex items-center rounded-lg bg-[#FBB603] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
+                            <a href="{{ route('transaksi.download-pdf', $pemesanan->id) }}" class="inline-flex items-center rounded-lg bg-[#FBB603] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
                                 <div class="flex gap-2">
                                     <div class="h-5 w-5">
                                         <svg class="" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -94,7 +94,7 @@
                                         Unduh Bukti Pembayaran
                                     </div>
                                 </div>
-                            </button>
+                            </a>
                         </div>
                     </div>
                     <script>
@@ -118,7 +118,7 @@
                             var hours = now.getHours().toString().padStart(2, '0');
                             var minutes = now.getMinutes().toString().padStart(2, '0');
 
-                            var currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+                            var currentDateTime = ${year}-${month}-${day}T${hours}:${minutes};
 
                             dateTimeInput.min = currentDateTime;
                         }
