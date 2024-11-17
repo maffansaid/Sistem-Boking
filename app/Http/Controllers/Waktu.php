@@ -32,7 +32,7 @@ class Waktu extends Controller
             'pemesanan',
             'tanggal',
             'waktu',
-        ]));
+        ]))->with('success', 'Berhasil memperbaharui data waktu.');
     }
 
     public function hapusWaktu(Request $request)
@@ -54,6 +54,6 @@ class Waktu extends Controller
             }
         }
 
-        return redirect('/BagianWaktu?tanggal=' . Str::substr($validate['tanggal'], 0, 10));
+        return redirect('/BagianWaktu?tanggal=' . Str::substr($validate['tanggal'], 0, 10))->with('success', 'Berhasil memperbaharui data waktu.');
     }
 }

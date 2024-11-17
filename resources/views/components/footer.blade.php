@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="h-[95px] lg:h-[194px] bg-transparent pr-10 pl-10 lg:pr-20 lg:pl-10">
-            <div class="h-full border-l-2 border-gray-500"></div>
+            <div class="h-full border-l-2 border-black"></div>
         </div>
         <div class="w-[50%] lg:w-[55%]">
             <div class="flex m-auto gap-5 text-center items-center justify-center mb-2">

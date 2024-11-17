@@ -127,7 +127,7 @@ class Pemesanan extends Controller
         $pemesanan->pembayaran()->delete();
         $pemesanan->delete();
 
-        return back();
+        return back()->with('error', 'Berhasil menghapus daftar permintaan.');
     }
 
     public function tampilanBiodata()

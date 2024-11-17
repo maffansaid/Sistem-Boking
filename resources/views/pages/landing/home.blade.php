@@ -354,7 +354,7 @@
                                         class="absolute left-1/2 top-1/2 block w-full -translate-x-1/2 -translate-y-1/2"
                                         alt="...">
                                     <div
-                                        class="absolute bg-[#FBB603] bg-opacity-60 text-black text-center flex m-auto justify-center w-fit left-1/2 -translate-x-1/2 rounded-lg bottom-0 text-[20px] p-1">
+                                        class="absolute bg-[#ffffff] bg-opacity-60 text-black text-center flex m-auto justify-center w-fit left-1/2 -translate-x-1/2 rounded-lg bottom-0 text-[20px] p-1">
                                         {{ $item->judul }}
                                     </div>
                                 </div>

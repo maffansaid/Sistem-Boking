@@ -36,6 +36,30 @@
                         <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
                         <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" onchange="updateDay(this.value)" value="{{ $tanggal->format('Y-m-d') }}" />
                     </div>
+                    <script>
+                        const dateInput = document.getElementById("dateInput");
+                        function setDateLimits() {
+                            const today = new Date();
+                            const minDate = today; // Tanggal hari ini
+                            const maxDate = new Date(today.getFullYear(), today.getMonth() + 1, today.getDate()); // Tanggal satu bulan ke depan
+
+                            const formatDate = (date) => {
+                                const year = date.getFullYear();
+                                const month = String(date.getMonth() + 1).padStart(2, "0");
+                                const day = String(date.getDate()).padStart(2, "0");
+                                return `${year}-${month}-${day}`;
+                            };
+
+                            dateInput.setAttribute("min", formatDate(minDate));
+                            dateInput.setAttribute("max", formatDate(maxDate));
+                        }
+                        setDateLimits();
+                    </script>
+
+                    <!-- <div class="flex w-full flex-col">
+                        <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
+                        <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" onchange="updateDay(this.value)" value="{{ $tanggal->format('Y-m-d') }}" />
+                    </div> -->
 
                     <div class="flex w-full flex-col">
                         <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
@@ -48,25 +72,25 @@
             </div>
             <div class="mt-4">
                 @error('tanggal')
-                    <p class="text-red-500">{{ $message }}</p>
+                <p class="text-red-500">{{ $message }}</p>
                 @enderror
                 @error('waktu')
-                    <p class="text-red-500">{{ $message }}</p>
+                <p class="text-red-500">{{ $message }}</p>
                 @enderror
                 <div class="grid grid-cols-3 gap-2 lg:grid-cols-6 lg:gap-4">
                     @foreach ($waktu as $item)
-                        @php
-                            $disabled =
-                                $pemesanan
-                                    ->where('waktu_awal_id', '<=', $item->id)
-                                    ->where('waktu_akhir_id', '>=', $item->id)
-                                    ->count() || $item->terhapus->count();
+                    @php
+                    $disabled =
+                    $pemesanan
+                    ->where('waktu_awal_id', '<=', $item->id)
+                        ->where('waktu_akhir_id', '>=', $item->id)
+                        ->count() || $item->terhapus->count();
                         @endphp
                         <div class="flex items-center justify-center">
                             <input type="checkbox" id="{{ $item->id }}" name="waktu[]" class="peer hidden" value="{{ $item->id }}" @checked(in_array($item->id, session('waktu') ?? [])) @disabled($disabled) />
                             <label for="{{ $item->id }}" class="rounded-full border-none bg-gray-300 p-4 text-center text-white hover:bg-green-500 peer-checked:bg-green-500 peer-focus:bg-green-500 peer-disabled:bg-red-500">{{ Str::substr($item->waktu, 0, 5) }}</label>
                         </div>
-                    @endforeach
+                        @endforeach
                 </div>
             </div>
             <div class="flex justify-between">
@@ -107,7 +131,11 @@
     </div>
     <script>
         window.onload = function() {
-            updateDay({{ $tanggal->format('Y-m-d') }}, false);
+            updateDay({
+                {
+                    $tanggal - > format('Y-m-d')
+                }
+            }, false);
         }
 
         function updateDay(value, reload = true) {

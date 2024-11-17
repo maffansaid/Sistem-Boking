@@ -26,7 +26,7 @@ class Informasi extends Controller
 
         ModelsInformasi::create($validasi);
 
-        return redirect('/BagianInformasi');
+        return redirect('/BagianInformasi')->with('success', 'Berhasil menambahkan data informasi.');
     }
 
     public function hapus(Request $request)
@@ -38,6 +38,6 @@ class Informasi extends Controller
             $data->delete();
         }
 
-        return redirect('/BagianInformasi');
+        return redirect('/BagianInformasi')->with('error', 'Berhasil menghapus data informasi.');
     }
 }

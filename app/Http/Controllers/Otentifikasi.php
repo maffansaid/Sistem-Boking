@@ -17,18 +17,18 @@ class Otentifikasi extends Controller
     }
 
     public function login(Request $request)
-    {
-        $validate = $request->validate([
-            'email' => 'bail|required|string|email|exists:users,email',
-            'password' => 'bail|required|string',
-        ]);
+{
+    $validate = $request->validate([
+        'email' => 'bail|required|string|email|exists:users,email',
+        'password' => 'bail|required|string',
+    ]);
 
-        if (Auth::attempt($validate)) {
-            return redirect('/BagianInformasi');
-        }
-
-        return back()->withErrors(['email' => 'Email atau kata sandi tidak benar']);
+    if (Auth::attempt($validate)) {
+        return redirect('/BagianInformasi')->with('success', 'Login berhasil! Selamat datang.');
     }
+
+    return back()->with('error', 'Email atau kata sandi tidak benar.');
+}
 
     public function logout()
     {
@@ -36,7 +36,7 @@ class Otentifikasi extends Controller
             auth()->logout();
         }
 
-        return redirect()->route('login');
+        return redirect()->route('login')->with('success', 'Berhasil Logout! Terimakasih.');
     }
 
     public function tampilanLupaPassword()
@@ -66,7 +66,7 @@ class Otentifikasi extends Controller
             return back()->withErrors(['email' => 'Alamat email tidak aktif']);
         }
 
-        return redirect('/Otp?id=' . (string) $user->id);
+        return redirect('/Otp?id=' . (string) $user->id)->with('success', 'Berhasil! Silahkan cek email Anda.');
     }
 
     public function tampilanOtp(Request $request)
@@ -106,6 +106,6 @@ class Otentifikasi extends Controller
 
         $user->update(['password' => $request['password']]);
 
-        return redirect('/Login');
+        return redirect('/Login')->with('success', 'Berhasil! mengubah password anda!.');
     }
 }
