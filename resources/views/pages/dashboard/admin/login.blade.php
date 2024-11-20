@@ -82,7 +82,7 @@
                 <img src="/assets/logo_polres.png" class="hover:animation-all m-auto flex h-1/2 w-1/2" alt="">
             </div>
             <p class="font-poppins text-center text-3xl font-semibold text-white">Selamat Datang</p>
-            <p class="font-poppins text-lg font-normal text-white">Halaman Login User</p>
+            <p class="font-poppins text-lg font-normal text-white">Halaman Login Admin</p>
             <form class="w-full space-y-2" action="" method="POST">
                 @csrf
                 <div>

@@ -22,7 +22,7 @@
 
 <body>
     <x-sideBarAdmin />
-    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
+    <div class="min-h-screen bg-neutral-200 p-4 sm:ml-64">
 
     <!-- Pop-up Messages -->
     @if(session('success') || session('error'))
@@ -79,16 +79,16 @@
         </script>
 
         <div class="m-5 lg:m-20">
-            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-white">
+            <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-black">
                 Daftar Permintaan</div>
             <div class="md:flex md:justify-between">
                 <div class="flex gap-4 md:justify-start">
                     <form class="flex w-full flex-col">
-                        <label for="dateInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Tanggal</label>
+                        <label for="dateInput" class="mb-1 text-xs font-semibold text-black md:text-sm">Tanggal</label>
                         <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" value="{{ $tanggal?->format('Y-m-d') ?? '' }}" onchange="this.form.submit()" />
                     </form>
                     <div class="flex w-full flex-col">
-                        <label for="dayInput" class="mb-1 text-xs font-semibold text-white md:text-sm">Hari</label>
+                        <label for="dayInput" class="mb-1 text-xs font-semibold text-black md:text-sm">Hari</label>
                         <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="Hari" readonly>
                     </div>
                 </div>

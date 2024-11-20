@@ -29,10 +29,10 @@
 
 <body>
     <x-sideBarUser />
-    <div class="min-h-screen bg-[#A40000] p-4 sm:ml-64">
+    <div class="min-h-screen bg-neutral-200 p-4 sm:ml-64">
         <div class="m-5 rounded-lg bg-[#D9D9D9] text-center text-[24px] text-black lg:m-10">
             <div class="mx-auto max-w-full overflow-hidden rounded-lg bg-white shadow-lg">
-                <div class="bg-[#99FF33] p-4 text-center text-black">
+                <div class="bg-[#F8C104] p-4 text-center text-white">
                     <h2 class="text-2xl font-bold">Struk Transaksi</h2>
                 </div>
 
@@ -51,71 +51,73 @@
                 </div>
 
                 <div class="p-5">
-                    <div class="grid grid-cols-3 gap-y-2">
-                        <div class="flex justify-end">
+                    <div class="grid grid-cols-3 gap-y-2 text-sm md:text-lg">
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Total Pembayaran</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex justify-start">
+                        <div class="md:flex md:justify-start text-end">
                             <span class="text-blue-600">Rp
                                 {{ number_format($pemesanan->pembayaran->harga, 0, '', '.') }}</span>
                         </div>
 
-                        <div class="flex justify-end">
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Bank Tujuan</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex justify-start">
+                        <div class="md:flex md:justify-start text-end">
                             <span class="">Bank
                                 {{ session('metode') === 'BRIVA' ? 'BRI' : (session('metode') === 'BNIVA' ? 'BNI' : 'BCA') }}</span>
                         </div>
 
-                        <div class="flex justify-end">
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Nomor Virtual Account</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex items-center justify-start">
-                            <span class="text-blue-600"
-                                id="virtual-account">{{ session('pembayaran')['data']['pay_code'] ?? '' }}</span>
-                            <button class="ml-2 rounded bg-[#99FF33] px-2 py-1 text-sm text-black hover:bg-[#99FF33]"
+                        <div class="flex items-center justify-between md:justify-start">
+                            <span class="text-blue-600" id="virtual-account">
+                                {{ session('pembayaran')['data']['pay_code'] ?? '' }}
+                            </span>
+                            <button class="rounded bg-[#99FF33] px-2 py-1 text-sm text-black hover:bg-[#99FF33]"
                                 onclick="copyToClipboard()">
                                 Copy
                             </button>
                         </div>
 
-                        <div class="flex justify-end">
+
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Nama</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex justify-start">
+                        <div class="md:flex md:justify-start text-end">
                             <span class="">{{ $pemesanan->nama }}</span>
                         </div>
 
-                        <div class="flex justify-end">
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Nama PB</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex justify-start">
+                        <div class="md:flex md:justify-start text-end">
                             <span class="">{{ $pemesanan->nama_pb }}</span>
                         </div>
 
-                        <div class="flex justify-end">
+                        <div class="md:flex md:justify-end text-start">
                             <span class="font-medium">Status</span>
                         </div>
                         <div class="flex justify-center">
                             <span class="font-medium">:</span>
                         </div>
-                        <div class="flex justify-start">
+                        <div class="md:flex md:justify-start text-end">
                             @if ($pemesanan->status)
                                 <span class="text-green-600">Sukses</span>
                             @else
@@ -174,7 +176,7 @@
 
                 <div class="flex justify-center">
                     <a href="{{ route('transaksi.download-pdf', $pemesanan->id) }}" target="__blank"
-                        class="mb-5 flex items-center gap-2 rounded-lg bg-[#FBB603] px-5 py-2.5 text-sm font-medium text-black hover:bg-[#99FF33] focus:outline-none focus:ring-4 focus:ring-blue-300">
+                        class="mb-5 flex items-center gap-2 block rounded-lg bg-[#F8C104] px-5 py-2.5 text-sm font-bold text-black hover:bg-[#B58D05] focus:outline-none font-bold transition transform duration-300 hover:scale-110">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\HapusWaktu;
 use App\Models\Pemesanan;
 use App\Models\Waktu as ModelsWaktu;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Str;
 
 class Waktu extends Controller
@@ -43,15 +43,18 @@ class Waktu extends Controller
             'waktu' => 'bail|array',
         ]);
 
-        if ($validate['waktu']) {
-            HapusWaktu::whereDate('tanggal', $validate['tanggal'])->delete();
+        $waktu=$validate['waktu'] ?? [];
 
-            foreach ($validate['waktu'] as $item) {
-                HapusWaktu::create([
-                    'tanggal' => $validate['tanggal'],
-                    'waktu_id' => $item
-                ]);
-            }
+        if ($waktu) {
+            $tanggal=Carbon::parse($request->query('tanggal'));
+            HapusWaktu::whereDate('tanggal', $tanggal)->delete();
+
+            // foreach ($waktu as $item) {
+            //     HapusWaktu::create([
+            //         'tanggal' => $tanggal,
+            //         'waktu_id' => $item
+            //     ]);
+            // }
         }
 
         return redirect('/BagianWaktu?tanggal=' . Str::substr($validate['tanggal'], 0, 10))->with('success', 'Berhasil memperbaharui data waktu.');

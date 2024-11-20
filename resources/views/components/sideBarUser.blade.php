@@ -12,14 +12,14 @@
 <aside id="cta-button-sidebar"
     class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0"
     aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-[#D9D9D9]">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-[#800000]">
 
         <ul class="space-y-2 font-medium">
             <li class="pb-2">
                 <a href="mailto:gorbulutangkislamsel@gmail.com" class="items-center text-gray-900 rounded-lg group ">
                     <img src="/assets/logo_polres.png" alt=""
                         class="w-[80px] h-[60px] md:w-[140px] md:h-[100px] m-auto justify-center items-center flex">
-                    <span class="ms-3 flex justify-center text-sm">Polres Lampung-Selatan</span>
+                    <span class="ms-3 flex justify-center text-sm text-white font-bold">Polres Lampung-Selatan</span>
                 </a>
             </li>
 
@@ -28,9 +28,9 @@
                     $activePagePath1 = ['UserPemesanan'];
                 @endphp
                 <a href="/UserPemesanan"
-                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath1)) text-white rounded-lg bg-[#99FF33]
+                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath1)) text-white rounded-lg bg-[#F8C104]
         @else
-            hover:bg-[#99FF33] bg-[#FBB603] hover:text-white @endif">
+            hover:bg-[#F8C104] bg-neutral-100 @endif">
                     <svg class="flex-shrink-0 w-5 h-5 transition duration-75" aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 18">
                         <path
@@ -42,12 +42,12 @@
 
             <li>
                 <div class="div">
-                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
-                        aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center text-neutral-100"
+                        aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
-                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#000000" stroke-width="2"
+                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#F5F5F5" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
@@ -59,9 +59,9 @@
                     $activePagePath2 = ['UserWaktu'];
                 @endphp
                 <a href="/UserWaktu"
-                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath2)) text-white rounded-lg bg-[#99FF33]
+                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath2)) text-white rounded-lg bg-[#F8C104]
         @else
-            hover:bg-[#99FF33] bg-[#FBB603] hover:text-white @endif">
+            hover:bg-[#F8C104] bg-neutral-100 @endif">
                     <svg class="flex-shrink-0 w-5 h-5 transition duration-75" viewBox="0 0 32 32" fill="currentColor"
                         xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -78,12 +78,12 @@
 
             <li>
                 <div class="div">
-                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
-                        aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center text-neutral-100"
+                        aria-hidden="true" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
-                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#000000" stroke-width="2"
+                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#F5F5F5" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
@@ -95,9 +95,9 @@
                     $activePagePath3 = ['UserPembayaran'];
                 @endphp
                 <a href="/UserPembayaran"
-                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath3)) text-white rounded-lg bg-[#99FF33]
+                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath3)) text-white rounded-lg bg-[#F8C104]
         @else
-            hover:bg-[#99FF33] bg-[#FBB603] hover:text-white @endif">
+            hover:bg-[#F8C104] bg-neutral-100 @endif">
                     <svg class="flex-shrink-0 w-5 h-5 transition duration-75" aria-hidden="true" version="1.1"
                         id="Icons" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0 0 32 32" xml:space="preserve" fill="currentColor">
@@ -163,12 +163,13 @@
 
             <li>
                 <div class="div">
-                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center"
-                        aria-hidden="true" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg class="flex-shrink-0 w-10 h-10 transition duration-75 flex m-auto justify-center items-center text-neutral-100"
+                        aria-hidden="true" viewBox="0 0 24 24" fill="currentColor"
+                        xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
-                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#000000" stroke-width="2"
+                            <path d="M12 6V18M12 18L7 13M12 18L17 13" stroke="#F5F5F5" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round"></path>
                         </g>
                     </svg>
@@ -180,9 +181,9 @@
                     $activePagePath4 = ['UserSelesai'];
                 @endphp
                 <a href="/UserSelesai"
-                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath4)) text-white rounded-lg bg-[#99FF33]
+                    class="flex items-center p-2 hover:text-white rounded-lg group @if (in_array(Request::path(), $activePagePath4)) text-white rounded-lg bg-[#F8C104]
         @else
-            hover:bg-[#99FF33] bg-[#FBB603] hover:text-white @endif">
+            hover:bg-[#F8C104] bg-neutral-100 @endif">
                     <svg class="flex-shrink-0 w-5 h-5 transition duration-75" aria-hidden="true" viewBox="0 0 20 20"
                         version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         fill="currentColor">
@@ -208,15 +209,13 @@
                     <span class="flex-1 ms-3 whitespace-nowrap">Selesai</span>
                 </a>
             </li>
-
         </ul>
 
-        <ul class="pt-4 mt-4 space-y-2 font-medium border-t-2 border-gray-200 dark:border-gray-700">
+        <ul class="pt-4 mt-4 space-y-2 font-medium border-t-2 border-white">
             <li>
-                <a href="/"
-                    class="flex items-center p-2 bg-[#FBB603] rounded-lg hover:bg-[#99FF33] group w-fit m-auto text-black hover:text-white">
-                    <svg class="flex-shrink-0 w-5 h-5 transition duration-75" fill="currentColor"
-                        viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+                <a href="/" class="flex items-center p-2 bg-[#F8C104] rounded-lg group w-fit m-auto text-black">
+                    <svg class="flex-shrink-0 w-5 h-5 transition duration-75" fill="black" viewBox="0 0 1024 1024"
+                        xmlns="http://www.w3.org/2000/svg">
                         <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                         <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                         <g id="SVGRepo_iconCarrier">
@@ -225,7 +224,7 @@
                             </path>
                         </g>
                     </svg>
-                    <span class="flex-1 ms-3 ">Home</span>
+                    <span class="flex-1 ms-3 text-black">Beranda</span>
                 </a>
             </li>
         </ul>
