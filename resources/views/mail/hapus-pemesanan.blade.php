@@ -1,5 +1,5 @@
 <div>
-    <p>{{$data['pesan']}}</p>
+    <h1>{{$data['pesan']}}</h1>
 
     <p>Pemesanan lapangan dengan rincian sebagai berikut : </p>
     <table>
@@ -25,5 +25,6 @@
         </tr>
     </table>
 
-    <p>MOHON UNTUK KONFIRMASIKAN DENGAN ADMIN LAPANGAN UNTUK MENDAPATKAN UANG ANDA KEMBALI</p>
+    <p>JIKA TELAH MELAKUKAN PEMBAYARAN, MOHON UNTUK KONFIRMASIKAN DENGAN ADMIN LAPANGAN UNTUK MENDAPATKAN UANG ANDA
+        KEMBALI.</p>
 </div>
