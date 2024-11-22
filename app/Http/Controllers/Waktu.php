@@ -43,18 +43,16 @@ class Waktu extends Controller
             'waktu' => 'bail|array',
         ]);
 
-        $waktu=$validate['waktu'] ?? [];
+        $waktu = $validate['waktu'] ?? [];
 
-        if ($waktu) {
-            $tanggal=Carbon::parse($request->query('tanggal'));
-            HapusWaktu::whereDate('tanggal', $tanggal)->delete();
+        $tanggal = Carbon::parse($request->query('tanggal'));
+        HapusWaktu::whereDate('tanggal', $tanggal)->delete();
 
-            // foreach ($waktu as $item) {
-            //     HapusWaktu::create([
-            //         'tanggal' => $tanggal,
-            //         'waktu_id' => $item
-            //     ]);
-            // }
+        foreach ($waktu as $item) {
+            HapusWaktu::create([
+                'tanggal' => $tanggal,
+                'waktu_id' => $item
+            ]);
         }
 
         return redirect('/BagianWaktu?tanggal=' . Str::substr($validate['tanggal'], 0, 10))->with('success', 'Berhasil memperbaharui data waktu.');
