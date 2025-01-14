@@ -24,8 +24,8 @@
     <x-sideBarAdmin />
     <div class="min-h-screen bg-neutral-200 p-4 sm:ml-64">
 
-    <!-- Pop-up Messages -->
-    @if(session('success') || session('error'))
+        <!-- Pop-up Messages -->
+        @if(session('success') || session('error'))
         <div id="popup-message"
             class="fixed top-4 left-1/2 z-50 w-11/12 max-w-sm -translate-x-1/2 transform rounded-lg p-4 shadow-lg 
                 transition-all duration-500 ease-in-out opacity-100 bg-{{ session('success') ? 'green-500' : 'red-500' }} 
@@ -82,7 +82,7 @@
             <div class="m-auto mb-10 flex items-center justify-center text-center text-[30px] font-bold text-black">
                 Daftar Permintaan</div>
             <div class="md:flex md:justify-between">
-                <div class="flex gap-4 md:justify-start">
+                <div class="md:flex gap-4 md:justify-start space-y-2">
                     <form class="flex w-full flex-col">
                         <label for="dateInput" class="mb-1 text-xs font-semibold text-black md:text-sm">Tanggal</label>
                         <input name="tanggal" type="date" id="dateInput" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="" value="{{ $tanggal?->format('Y-m-d') ?? '' }}" onchange="this.form.submit()" />
@@ -90,6 +90,17 @@
                     <div class="flex w-full flex-col">
                         <label for="dayInput" class="mb-1 text-xs font-semibold text-black md:text-sm">Hari</label>
                         <input type="text" id="dayInput" name="" class="w-full rounded-lg border bg-white p-3 text-xs text-black shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 md:text-sm" placeholder="Hari" readonly>
+                    </div>
+                    <div class="flex flex-col w-full">
+                        <label for="dayInput" class="mb-1 text-xs font-semibold text-black md:text-sm">Pencarian</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                                </svg>
+                            </div>
+                            <input type="search" id="default-search" class="block w-full rounded-lg border bg-white p-3 pl-10 text-xs text-black shadow-sm focus:outline-none md:text-sm" placeholder="Cari..." required />
+                        </div>
                     </div>
                 </div>
                 <script>
@@ -138,42 +149,78 @@
                     </thead>
                     <tbody>
                         @foreach ($pemesanan as $item)
-                            <tr class="border-b border-[#FBB603] bg-white">
-                                <th scope="row" class="whitespace-nowrap px-2 py-1 font-medium text-black">
-                                    {{ $loop->iteration }}
-                                </th>
-                                <td class="px-6 py-4">
-                                    {{ $item->nama }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $item->nama_pb }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $item->tanggal }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ Str::substr($item->waktuAwal->waktu, 0, 5) }}-{{ Str::substr($item->waktuAkhir->waktu, 0, 5) }}
-                                </td>
-                                <td class="px-6 py-4">
-                                    <div class="m-auto flex justify-center justify-items-center gap-2 text-center">
-                                        <a href="/BagianPermintaan/{{ $item->id }}/detail" title="lihat">
-                                            <div class="rounded-md bg-[#FA8F21] p-1 hover:bg-[#D87815] dark:bg-[#FA8F21] dark:hover:bg-[#D87815]">
-                                                <x-svg-lihat />
-                                            </div>
-                                        </a>
-                                        <div class="div">
-                                            <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="delete-button cursor-pointer rounded-md bg-[#FF0000] p-1 hover:bg-[#D51717]" title="Delete" type="button" onclick="setDeleteId({{ $item->id }})">
-                                                <x-svg-silang />
-                                            </button>
-
+                        <tr class="border-b border-[#FBB603] bg-white">
+                            <th scope="row" class="whitespace-nowrap px-2 py-1 font-medium text-black">
+                                {{ $loop->iteration }}
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ $item->nama }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $item->nama_pb }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ $item->tanggal }}
+                            </td>
+                            <td class="px-6 py-4">
+                                {{ Str::substr($item->waktuAwal->waktu, 0, 5) }}-{{ Str::substr($item->waktuAkhir->waktu, 0, 5) }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <div class="m-auto flex justify-center justify-items-center gap-2 text-center">
+                                    <a href="/BagianPermintaan/{{ $item->id }}/detail" title="lihat">
+                                        <div class="rounded-md bg-[#FA8F21] p-1 hover:bg-[#D87815] dark:bg-[#FA8F21] dark:hover:bg-[#D87815]">
+                                            <x-svg-lihat />
                                         </div>
+                                    </a>
+                                    <div class="div">
+                                        <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="delete-button cursor-pointer rounded-md bg-[#FF0000] p-1 hover:bg-[#D51717]" title="Delete" type="button" onclick="setDeleteId({{ $item->id }})">
+                                            <x-svg-silang />
+                                        </button>
+
                                     </div>
-                                </td>
-                            </tr>
+                                </div>
+                            </td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
+
+            <nav aria-label="Page navigation example" class="justify-end flex mt-6">
+                <ul class="flex items-center -space-x-px h-8 text-sm">
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Previous</span>
+                            <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
+                    </li>
+                    <li>
+                        <a href="#" aria-current="page" class="z-10 flex items-center justify-center px-3 h-8 leading-tight text-blue-600 border border-blue-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white">3</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">4</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">5</a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                            <span class="sr-only">Next</span>
+                            <svg class="w-2.5 h-2.5 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </div>
     <div id="popup-modal" tabindex="-1" class="fixed left-0 right-0 top-0 z-50 hidden h-[calc(100%-1rem)] max-h-full w-full items-center justify-center overflow-y-auto overflow-x-hidden md:inset-0">
